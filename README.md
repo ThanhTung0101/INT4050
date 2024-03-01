@@ -31,12 +31,14 @@ If using sqlite, you can pass this step.
 This guide intends to help create PostgreSQL db
 
 ```sql
-DROP DATABASE IF EXISTS INT4050;
+DROP DATABASE IF EXISTS khoaluan;
 
-CREATE DATABASE INT4050;
+CREATE DATABASE khoaluan;
 
-CREATE ROLE INT4050 WITH LOGIN PASSWORD 'password';
-ALTER DATABASE INT4050 OWNER TO INT4050;
+CREATE ROLE khoaluan WITH LOGIN PASSWORD 'password';
+ALTER DATABASE khoaluan OWNER TO khoaluan;
+GRANT ALL PRIVILEGES ON DATABASE khoaluan TO khoaluan;
+
 ```
 
 ### Create environment file
