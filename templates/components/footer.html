@@ -1,0 +1,43 @@
+{% load static %}
+
+{% block footer %}
+<div class="container-fluid footer">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 d-flex justify-content-center align-items-center">
+            <a href="#">
+                <img src="{% static 'img/uet_logo.jpg' %}" class="logo-footer" alt="logo-footer">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-2 list-footer">
+            <ul>
+                <li class="title-footer"><b>Liên hệ với chúng tôi</b></li>
+                <li><a href="mailto:clblyluantre.uet@gmail.com">clblyluantre.uet@gmail.com</a></li>
+                <li>
+                    <a href="tel:0839178172">0839.178.172</a>
+                </li>
+                <li><a>Trường Đại học Công nghệ, ĐHQGHN</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-sm-6 mt-2 list-footer">
+            <ul>
+                <li class="title-footer"><b>Truy cập nhanh</b></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Tin tức</a></li>
+                <li>Chính sách bảo mật</li>
+            </ul>
+        </div>
+        <div class="col-md-1 col-sm-12 d-flex justify-content-center align-items-center">
+            <div class="d-md-block d-flex justify-content-center">
+                <div>
+                    <a href="#" target="blank">
+                        <img src="{% static 'icons/facebookIcon.svg' %}" alt="facebook-icon">
+                    </a>
+                </div>
+                <div class="mt-md-2">
+                    <img src="{% static 'icons/instagramIcon.svg' %}" class="instagram-icon" alt="instagram-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock footer %}

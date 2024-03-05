@@ -10,10 +10,14 @@
     {% endblock essential_css %}
 
     {% block extra_css %}{% endblock extra_css %}
-    <title></title>
+    <title>Đôi bạn cùng tiến</title>
   </head>
 
   <body>
+    <div id="navbar">
+      {% include "components/navbar.html"%}
+    </div>
+
     {% block content %}
     <div class="container">
         {% block main_content %}
@@ -22,6 +26,10 @@
     {% endblock content %}
 
     <div id="spinner"></div>
+
+    <div id="footer">
+      {% include "components/footer.html"%}
+    </div>
 
     {% block essential_js %}
         {% include "includes/js.html" %}
