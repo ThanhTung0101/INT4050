@@ -1,11 +1,12 @@
 # flake8: noqa
 
-from .base import *
 from .apps import *
+from .base import *
 from .cache import *
 from .celery import *
 from .csrf import *
 from .database import *
+from .django_cms import *
 from .drf import *
 from .internationalization import *
 from .logging import *

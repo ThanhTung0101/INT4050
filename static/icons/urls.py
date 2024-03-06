@@ -1,4 +1,4 @@
-"""FINAL-INT4050 URL Configuration
+"""viet_plastic URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -19,34 +19,37 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 
 from views import (
-    couple_friends_view,
+    contact_view,
     detail_news_view,
-    documents_view,
-    forum_view,
+    detail_product_view,
     home_view,
     news_view,
-    profile_view,
+    product_categories_view,
+    product_category_view,
 )
+
+# from views.index import index
+
 
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     path("", home_view, name="home"),
-    path("doi-ban/", couple_friends_view, name="couple_friends"),
+    path("danh-muc/", product_categories_view, name="product_categories"),
     path(
-        "cung-tien/",
-        documents_view,
-        name="documents",
+        "danh-muc-san-pham/<int:category_id>/",
+        product_category_view,
+        name="product_category",
     ),
     path(
-        "dien-dan/",
-        forum_view,
-        name="forum",
+        "chi-tiet-san-pham/<int:category_id>/<int:product_id>/",
+        detail_product_view,
+        name="detail_product",
     ),
     path("tin-tuc/", news_view, name="news"),
     path(
         "chi-tiet-tin-tuc/<int:post_id>/", detail_news_view, name="detail_news"
     ),
-    path("ho-so/", profile_view, name="profile"),
+    path("lien-he/", contact_view, name="contact"),
     path("cms/", include("cms.urls")),
     path("post/", include("djangocms_blog.urls")),
     path("taggit_autosuggest/", include("taggit_autosuggest.urls")),

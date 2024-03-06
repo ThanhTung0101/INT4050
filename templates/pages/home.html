@@ -2,5 +2,73 @@
 {% load static %}
 
 {% block content %}
+<div id="slider">
+    {% include "components/slider.html"%}
+</div>
+
+<div id="new-documents">
+  <div class="container-fluid new-documents">
+    <div class="container box-header-new-documents">
+    <div class="row">
+        <div class="col-7 d-flex align-items-center">
+        <h5 class="header-new-documents mb-0">TÀI LIỆU MỚI NHẤT</h5>
+        </div>
+        <div class="col-5 d-flex justify-content-end pe-0">
+        <button class="btn d-flex align-items-center">
+            <a href="#" class="d-flex align-items-center text-decoration-none text-black">
+            <span class="view-more-new-documents me-1">TẤT CẢ TÀI LIỆU</span>
+            <span>
+                <img src="{% static 'icons/arrowRightWhite.svg' %}" alt="arrow-right-black-icon" class="">
+            </span>
+            </a>
+        </button>
+        </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="featured-news">
+    <div class="container-fluid featured-news">
+      <div class="container box-header-featured-news">
+        <div class="row">
+          <div class="col-6 d-flex align-items-center">
+            <h5 class="header-featured-news mb-0">TIN TỨC NỔI BẬT</h5>
+          </div>
+          <div class="col-6 d-flex justify-content-end pe-0">
+            <button class="btn d-flex align-items-center">
+              <a href="#" class="d-flex align-items-center text-decoration-none text-black">
+                <span class="view-more-featured-news me-1">TẤT CẢ</span>
+                <span>
+                  <img src="{% static 'icons/arrowRightYellow.svg' %}" alt="arrow-right-icon" class="">
+                </span>
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+        {% for post in "abcd" %}
+          {% comment %} {% include 'components/news_card.html' with post=post news_index=forloop.counter %} {% endcomment %}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="move-top-icon">
+    <img src="{% static 'icons/arrowUpBlack.svg' %}" alt="arrow-up-icon" class="move-top-icon" onclick="moveToTop()">
+  </div>
+
+  <script>
+  function moveToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  </script>
 
 {% endblock content %}

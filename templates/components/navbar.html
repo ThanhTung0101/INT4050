@@ -27,24 +27,24 @@
         <div class="row">
             <div class="col-4">
                 <button class="menu-button {% if page_name == 'trang-chu' %}selected-button{% endif %}">
-                    <a href="#">Trang chủ</a>
+                    <a href="{% url 'home' %}">Trang chủ</a>
                 </button>
             </div>
             <div class="col-4">
-                <button class="menu-button {% if page_name == 'doi-ban' %}selected-button{% endif %}">
-                    <a href="#">Đôi bạn</a>
+                <button class="menu-button {% if page_name == 'couple_friends' %}selected-button{% endif %}">
+                    <a href="{% url 'couple_friends' %}">Đôi bạn</a>
                 </button>
             </div>
             <div class="col-4">
-                <button class="menu-button {% if page_name == 'cung-tien' %}selected-button{% endif %}">
-                    <a href="#">Cùng tiến</a>
+                <button class="menu-button {% if page_name == 'documents' %}selected-button{% endif %}">
+                    <a href="{% url 'documents' %}">Cùng tiến</a>
                 </button>
             </div>
         </div>
     </div>
     <div class="col-2 d-flex align-self-center justify-content-center">
         <div class="row">
-            <a href="#">
+            <a href="{% url 'home' %}">
                 <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-laptop pb-2">
             </a>
         </div>
@@ -52,18 +52,18 @@
     <div class="col-5 d-flex align-items-center justify-content-end">
         <div class="row">
             <div class="col-4">
-                <button class="menu-button {% if page_name == 'dien-dan' %}selected-button{% endif %}">
-                    <a href="#">Diễn đàn</a>
+                <button class="menu-button {% if page_name == 'forum' %}selected-button{% endif %}">
+                    <a href="{% url 'forum' %}">Diễn đàn</a>
                 </button>
             </div>
             <div class="col-4">
-                <button class="menu-button {% if page_name == 'tin-tuc' %}selected-button{% endif %}">
-                    <a href="#">Tin tức</a>
+                <button class="menu-button {% if page_name == 'news' %}selected-button{% endif %}">
+                    <a href="{% url 'news' %}">Tin tức</a>
                 </button>
             </div>
             <div class="col-4">
-                <button class="menu-button {% if page_name == 'nha-cua-toi' %}selected-button{% endif %}">
-                    <a href="#">Hồ sơ</a>
+                <button class="menu-button {% if page_name == 'profile' %}selected-button{% endif %}">
+                    <a href="{% url 'profile' %}">Hồ sơ</a>
                 </button>
             </div>
         </div>
@@ -84,32 +84,32 @@
 </div>
 <div class="offcanvas-body">
     <ul class="sidebar-left">
-        <li  id="homeButton" class="menu-button menu-button-width {% if page_name == 'home' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+        <li  id="homeButton" class="menu-button menu-button-width {% if page_name == '' %}selected-button{% endif %}">
+            <a href="{% url 'home' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/homeIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Trang chủ</span>
                 </button>
             </a>
         </li>
-        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'products' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'couple_friends' %}selected-button{% endif %}">
+            <a href="{% url 'couple_friends' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/coupleFriendsIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Đôi bạn</span>
                 </button>
             </a>
         </li>
-        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'products' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'documents' %}selected-button{% endif %}">
+            <a href="{% url 'documents' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/documentIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Cùng tiến</span>
                 </button>
             </a>
         </li>
-        <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'news' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+        <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'forum' %}selected-button{% endif %}">
+            <a href="{% url 'forum' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/forumIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Diễn đàn</span>
@@ -117,15 +117,15 @@
             </a>
         </li>
         <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'news' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+            <a href="{% url 'news' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/newsIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Tin tức</span>
                 </button>
             </a>
         </li>
-        <li id="contactButton" class="menu-button menu-button-width {% if page_name == 'contact' %}selected-button{% endif %}">
-            <a href="#" class="d-flex align-items-center">
+        <li id="contactButton" class="menu-button menu-button-width {% if page_name == 'profile' %}selected-button{% endif %}">
+            <a href="{% url 'profile' %}" class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center">
                     <img src="{% static 'icons/personIcon.svg' %}" alt="home-icon">
                     <span class="ms-3 sidebar-list">Hồ sơ</span>

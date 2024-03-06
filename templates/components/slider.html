@@ -1,0 +1,58 @@
+{% load static %}
+
+{% comment %} TODO: Img in mobile {% endcomment %}
+
+{% block slider %}
+<div class="container mt-2">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            {% comment %} {% for img_slide in 'a' %}
+            <div class="carousel-item {% if forloop.first %} active{% endif %}" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_1.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            {% endfor %} {% endcomment %}
+            <div class="carousel-item active" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_1.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_2.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_3.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_4.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                <img src="{% static 'img/slider/slider_5.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock slider %}
