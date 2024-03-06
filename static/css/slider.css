@@ -21,9 +21,3 @@
     color: black;
     background-color: #E3A713;
 }
-
-@media only screen and (max-width: 992px) {
-    .carousel-caption {
-        padding-bottom: 10%;
-    }
-}

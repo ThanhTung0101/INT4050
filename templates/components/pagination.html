@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="container">
+    <div class="row pt-4">
+      <div class="col d-flex justify-content-center">
+        <div id="navPage">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                              {% if paginator_data.has_previous %}
+                              <a href="?page={{ paginator_data.previous_page_number }}">
+                                <li id="arrowLeft" class="page-item-news-arrow d-flex justify-content-center align-items-center">
+                                    <span aria-hidden="true" class="d-flex justify-content-center align-items-center">
+                                      <img src="{% static 'icons/arrowLeft.svg' %}" class="w-100" alt="arrowLeft">
+                                    </span>
+                                </li>
+                              </a>
+                              {% endif %}
+                              {% for page in paginator_data.paginator.page_range %}
+                              <a href="?page={{ page }}">
+                                <li class="page-item-news {% if page == paginator_data.number %} news-pagination-item-selected{% endif %} d-flex justify-content-center align-items-center">{{ page }}</li>
+                              </a>
+                              {% endfor %}
+                              {% if paginator_data.has_next %}
+                              <a href="?page={{ paginator_data.next_page_number }}">
+                                <li id="arrowRight" class="page-item-news-arrow d-flex justify-content-center align-items-center">
+                                    <span aria-hidden="true" class="d-flex justify-content-center align-items-center">
+                                        <img src="{% static 'icons/arrowRight.svg' %}" class="w-100" alt="arrowRight">
+                                    </span>
+                                </li>
+                              </a>
+                              {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
