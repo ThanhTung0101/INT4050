@@ -3,13 +3,40 @@ from django.shortcuts import get_object_or_404, render
 from djangocms_blog.models import Post
 
 
+def login_view(request):
+
+    return render(
+        request,
+        "pages/login.html",
+        context={
+            "page_name": "login",
+        },
+    )
+
+
+def register_view(request):
+
+    return render(
+        request,
+        "pages/register.html",
+        context={
+            "page_name": "register",
+        },
+    )
+
+
 def home_view(request):
+
+    posts = Post.objects.order_by("-date_published")
+    NUMBER_OUTSTANDING_NEWS = 6
+    featured_news_list = posts[:NUMBER_OUTSTANDING_NEWS]
 
     return render(
         request,
         "pages/home.html",
         context={
             "page_name": "home",
+            "featured_news_list": featured_news_list,
         },
     )
 
@@ -27,22 +54,96 @@ def couple_friends_view(request):
 
 def documents_view(request):
 
+    # TODO: add get post in documents
+
+    # posts = Post.objects.order_by("-date_published").prefetch_related(
+    #     "translations"
+    # )
+
+    PAGE_SIZE = 8
+    # paginator = Paginator(posts, PAGE_SIZE)
+
+    current_doucuments_page_number = request.GET.get("page", 1)
+    try:
+        current_doucuments_page_number = int(current_doucuments_page_number)
+    except ValueError:
+        print("Error: 'page' is not an integer")
+        current_doucuments_page_number = 1
+
+    # forum_paginator = paginator.get_page(current_doucuments_page_number)
+
+    current_page_index = []
+    for index in range(PAGE_SIZE):
+        current_page_index.append(
+            (current_doucuments_page_number - 1) * PAGE_SIZE + index + 1
+        )
+
     return render(
         request,
         "pages/documents.html",
         context={
             "page_name": "documents",
+            # "documents_paginator": doucuments_paginator,
+            "current_page_index": current_page_index,
+        },
+    )
+
+
+def detail_document_view(request):
+
+    return render(
+        request,
+        "pages/detail_document.html",
+        context={
+            "page_name": "detail_document",
         },
     )
 
 
 def forum_view(request):
 
+    # TODO: add get post in forum
+
+    # posts = Post.objects.order_by("-date_published").prefetch_related(
+    #     "translations"
+    # )
+
+    PAGE_SIZE = 8
+    # paginator = Paginator(posts, PAGE_SIZE)
+
+    current_forum_page_number = request.GET.get("page", 1)
+    try:
+        current_forum_page_number = int(current_forum_page_number)
+    except ValueError:
+        print("Error: 'page' is not an integer")
+        current_forum_page_number = 1
+
+    # forum_paginator = paginator.get_page(current_forum_page_number)
+
+    current_page_index = []
+    for index in range(PAGE_SIZE):
+        current_page_index.append(
+            (current_forum_page_number - 1) * PAGE_SIZE + index + 1
+        )
+
     return render(
         request,
         "pages/forum.html",
         context={
             "page_name": "forum",
+            # "forum_paginator": forum_paginator,
+            "current_page_index": current_page_index,
+        },
+    )
+
+
+def detail_forum_view(request):
+
+    return render(
+        request,
+        "pages/detail_forum.html",
+        context={
+            "page_name": "detail_forum",
         },
     )
 

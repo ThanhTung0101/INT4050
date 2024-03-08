@@ -1,2 +1,116 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+
+{% block content %}
+<div class="container">
+    <img src="{% static 'img/banner_forum.png' %}" class="banner-forum" alt="banner">
+</div>
+
+<div id="forum-filter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex my-3">
+                <a data-bs-toggle="modal" data-bs-target="#category-filter">
+                    <button class="btn btn-outline-primary me-3 filter-content">Danh mục</button>
+                </a>
+                <a data-bs-toggle="modal" data-bs-target="#tags-filter">
+                    <button class="btn btn-outline-primary me-3 filter-content">Tags</button>
+                </a>
+                <a href="#">
+                    <button class="btn btn-outline-primary filter-content">Thêm thảo luận</button>
+                </a>
+            </div>
+            {% comment %} <div class="col-md-6">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>
+                </form>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-fluid modal-vertical fade" id="category-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 class="modal-header-text text-white mt-2">Danh mục</h3>
+                <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-content-text">
+                {% comment %} {% for category in "abcd" %}
+                <button class="btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if !category.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
+                {% endfor %} {% endcomment %}
+            </div>
+            <div class="modal-footer modal-content-text d-flex justify-content-end">
+                <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-fluid modal-vertical fade" id="tags-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3 class="modal-header-text text-white mt-2">Tags</h3>
+                <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-content-text">
+                {% comment %} {% for tag in "abcd" %}
+                <button class="btn px-2 py-1 text-white {% if tag.selected %}selected-filter-items{% endif %}" style="{% if !tag.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
+                {% endfor %} {% endcomment %}
+            </div>
+            <div class="modal-footer modal-content-text d-flex justify-content-end">
+                <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="forum-content">
+    <div class="container mb-4">
+        <div class="row header-table pb-3 border-bottom-1 px-3">
+            <div class="col-md-6 col-12 d-flex justify-content-start">Chủ đề</div>
+            <div class="col-md-2 d-none d-md-flex justify-content-center">Danh mục</div>
+            <div class="col-md-1 d-none d-md-flex justify-content-center">Lượt thích</div>
+            <div class="col-md-1 d-none d-md-flex justify-content-center">Phản hồi</div>
+            <div class="col-md-2 d-none d-md-flex justify-content-center">Ngày đăng</div>
+        </div>
+        {% for post in "abcdefgh" %}
+        <a href="{% url 'detail_forum' %}">
+            <div class="row content-table py-4 px-3 {% if forloop.counter|divisibleby:2 %}bg-post-forum{% endif %}">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle" height="40px">
+                        </div>
+                        <div class="col-10 post-sub-title d-flex justify-content-center align-items-center">
+                            <div class="row">
+                                <div>Thắc mắc về nhiều điều, mỗi điều có một số vấn đề, mỗi một vấn đề có nhiều ý kiến cần thảo luận, mỗi ý kiến được tổng hợp từ nhiều người,....</div>
+                                <div class="tags-box d-flex mt-2">
+                                    {% for post_tags in "abc" %}
+                                    <button class="btn px-2 py-1 tag-button me-2">Tag</button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-none d-md-flex justify-content-center align-items-center">
+                    {% comment %} TODO: add category and color {% endcomment %}
+                    <button class="btn px-2 py-1 text-white" style="background-color: #777da7;">Đời sống</button>
+                </div>
+                <div class="col-md-1 d-none d-md-flex likes-number justify-content-center align-items-center">30</div>
+                <div class="col-md-1 d-none d-md-flex replies-number justify-content-center align-items-center"><strong>50</strong></div>
+                <div class="col-md-2 d-none d-md-flex date-info justify-content-center align-items-center">30/2/2024</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% if forum_paginator.has_other_pages %}
+  {% include 'components/pagination.html' with paginator_data=forum_paginator %}
+{% endif %}
+{% endblock content %}

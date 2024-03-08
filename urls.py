@@ -20,28 +20,37 @@ from django.urls import include, path, re_path
 
 from views import (
     couple_friends_view,
+    detail_document_view,
+    detail_forum_view,
     detail_news_view,
     documents_view,
     forum_view,
     home_view,
+    login_view,
     news_view,
     profile_view,
+    register_view,
 )
 
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     path("", home_view, name="home"),
+    path("dang-nhap/", login_view, name="login"),
+    path("dang-ky/", register_view, name="register"),
     path("doi-ban/", couple_friends_view, name="couple_friends"),
     path(
         "cung-tien/",
         documents_view,
         name="documents",
     ),
+    path("tai-lieu/", detail_document_view, name="detail_document"),
+    path("thao-luan/", detail_forum_view, name="detail_forum"),
     path(
         "dien-dan/",
         forum_view,
         name="forum",
     ),
+    path("thao-luan/", detail_forum_view, name="detail_forum"),
     path("tin-tuc/", news_view, name="news"),
     path(
         "chi-tiet-tin-tuc/<int:post_id>/", detail_news_view, name="detail_news"
