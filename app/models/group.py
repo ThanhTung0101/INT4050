@@ -8,3 +8,6 @@ class Group(models.Model):
         Student, on_delete=models.CASCADE, related_name="groups"
     )
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name

@@ -12,3 +12,6 @@ class CommentDocument(models.Model):
         Document, on_delete=models.CASCADE, related_name="comment_documents"
     )
     text = models.TextField()
+
+    def __str__(self):
+        return f"Comment Document: {self.text}"

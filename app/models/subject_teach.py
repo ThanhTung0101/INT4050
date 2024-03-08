@@ -17,3 +17,6 @@ class SubjectTeach(models.Model):
     experiment = models.CharField(
         choices=Experiment.CHOICES, default=Experiment.PRO
     )
+
+    def __str__(self):
+        return f"Subject teach: {self.name}"

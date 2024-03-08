@@ -14,3 +14,6 @@ class Post(models.Model):
     title = models.CharField(max_length=512)
     date_post = models.DateField(auto_now_add=True)
     content = models.TextField()
+
+    def __str__(self):
+        return self.title

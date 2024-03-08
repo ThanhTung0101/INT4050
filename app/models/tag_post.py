@@ -14,3 +14,6 @@ class TagPost(models.Model):
     name = models.CharField(max_length=255)
     background_color = models.CharField(max_length=100)
     is_selected = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Subject learn: {self.name}"

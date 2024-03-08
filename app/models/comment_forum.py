@@ -13,3 +13,6 @@ class CommentForum(models.Model):
     )
     text = models.TextField()
     image = models.FileField(blank=True, null=True, upload_to="avatar/")
+
+    def __str__(self):
+        return f"Comment Forum: {self.text}"

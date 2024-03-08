@@ -15,3 +15,6 @@ class Document(models.Model):
     subject = models.TextField(
         choices=SubjectName, default=SubjectName.ENGLISH
     )
+
+    def __str__(self):
+        return self.title

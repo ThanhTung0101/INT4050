@@ -16,3 +16,6 @@ class SubjectLearn(models.Model):
     price_propose = models.DecimalField(
         max_digits=9, decimal_places=2, blank=True
     )
+
+    def __str__(self):
+        return f"Subject learn: {self.name}"

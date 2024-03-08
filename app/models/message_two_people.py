@@ -11,3 +11,6 @@ class MessageTwoPeople(models.Model):
         Student, on_delete=models.CASCADE, related_name="messages_two_people"
     )
     message = models.TextField()
+
+    def __str__(self):
+        return f"Message group: {self.message}"
