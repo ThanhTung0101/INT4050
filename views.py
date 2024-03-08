@@ -3,6 +3,17 @@ from django.shortcuts import get_object_or_404, render
 from djangocms_blog.models import Post
 
 
+def wellcome_page_view(request):
+
+    return render(
+        request,
+        "pages/wellcome_page.html",
+        context={
+            "page_name": "wellcome_page",
+        },
+    )
+
+
 def login_view(request):
 
     return render(

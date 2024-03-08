@@ -1,137 +1,183 @@
 {% load static %}
 
 <div class="container mt-3">
-{% comment %} Navbar mobile {% endcomment %}
-<div class="row navbar-mobile d-flex d-lg-none">
-    <div class="col-3 d-flex align-items-center justify-content-start">
-        <button class="btn navbar-menu-icon" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-            <img src="{% static 'icons/sidebarIcon.svg' %}" alt="menu-icon" class="sidebar-icon">
-        </button>
-    </div>
-    <div class="col-6">
-        <div class="row d-flex align-self-center justify-content-center">
-            <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-mobile">
+    {% if page_name != 'wellcome_page' %}
+    {% comment %} Navbar mobile {% endcomment %}
+    <div class="row navbar-mobile d-flex d-lg-none">
+        <div class="col-3 d-flex align-items-center justify-content-start">
+            <button class="btn navbar-menu-icon" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <img src="{% static 'icons/sidebarIcon.svg' %}" alt="menu-icon" class="sidebar-icon">
+            </button>
+        </div>
+        <div class="col-6">
+            <div class="row d-flex align-self-center justify-content-center">
+                <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-mobile">
+            </div>
+        </div>
+        <div class="col-3 d-flex align-items-center justify-content-end">
+            <button class="contact-button" type="button">
+                <img src="{% static 'icons/contactIcon.svg' %}" alt="menu-icon" class="sidebar-icon">
+            </button>
         </div>
     </div>
-    <div class="col-3 d-flex align-items-center justify-content-end">
-        <button class="contact-button" type="button">
-            <img src="{% static 'icons/contactIcon.svg' %}" alt="menu-icon" class="sidebar-icon">
-        </button>
-    </div>
-</div>
 
-{% comment %} navbar laptop {% endcomment %}
-<div class="row navbar-laptop d-none d-lg-flex pb-3">
-    <div class="col-5 d-flex align-items-center justify-content-start">
-        <div class="row">
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'trang-chu' %}selected-button{% endif %}">
-                    <a href="{% url 'home' %}">Trang chủ</a>
-                </button>
+    {% comment %} navbar laptop {% endcomment %}
+    <div class="row navbar-laptop d-none d-lg-flex pb-3">
+        <div class="col-5 d-flex align-items-center justify-content-start">
+            <div class="row">
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'home' %}selected-button{% endif %}">
+                        <a href="{% url 'home' %}">Trang chủ</a>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'couple_friends' %}selected-button{% endif %}">
+                        <a href="{% url 'couple_friends' %}">Đôi bạn</a>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'documents' %}selected-button{% endif %}">
+                        <a href="{% url 'documents' %}">Cùng tiến</a>
+                    </button>
+                </div>
             </div>
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'couple_friends' %}selected-button{% endif %}">
-                    <a href="{% url 'couple_friends' %}">Đôi bạn</a>
-                </button>
+        </div>
+        <div class="col-2 d-flex align-self-center justify-content-center">
+            <div class="row">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-laptop pb-2">
+                </a>
             </div>
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'documents' %}selected-button{% endif %}">
-                    <a href="{% url 'documents' %}">Cùng tiến</a>
-                </button>
+        </div>
+        <div class="col-5 d-flex align-items-center justify-content-end">
+            <div class="row">
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'forum' %}selected-button{% endif %}">
+                        <a href="{% url 'forum' %}">Diễn đàn</a>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'news' %}selected-button{% endif %}">
+                        <a href="{% url 'news' %}">Tin tức</a>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button class="menu-button {% if page_name == 'profile' %}selected-button{% endif %}">
+                        <a href="{% url 'profile' %}">Hồ sơ</a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-2 d-flex align-self-center justify-content-center">
-        <div class="row">
-            <a href="{% url 'home' %}">
+    {% else %}
+    {% comment %} Navbar mobile {% endcomment %}
+    <div class="row navbar-mobile d-flex d-lg-none">
+        <div class="col-3 d-flex align-items-center justify-content-start">
+            <button class="menu-button {% if page_name == 'home' %}selected-button{% endif %}">
+                <a href="{% url 'login' %}">Đăng nhập</a>
+            </button>
+        </div>
+        <div class="col-6">
+            <div class="row d-flex align-self-center justify-content-center">
+                <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-mobile">
+            </div>
+        </div>
+        <div class="col-3 d-flex align-items-center justify-content-end">
+            <button class="menu-button {% if page_name == 'home' %}selected-button{% endif %}">
+                <a href="{% url 'register' %}">Đăng ký</a>
+            </button>
+        </div>
+    </div>
+
+    {% comment %} navbar laptop {% endcomment %}
+    <div class="row navbar-laptop d-none d-lg-flex pb-3">
+        <div class="col-5">
+        </div>
+        <div class="col-2 d-flex align-self-center justify-content-center">
+            <div class="row">
                 <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-laptop pb-2">
-            </a>
+            </div>
         </div>
-    </div>
-    <div class="col-5 d-flex align-items-center justify-content-end">
-        <div class="row">
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'forum' %}selected-button{% endif %}">
-                    <a href="{% url 'forum' %}">Diễn đàn</a>
-                </button>
-            </div>
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'news' %}selected-button{% endif %}">
-                    <a href="{% url 'news' %}">Tin tức</a>
-                </button>
-            </div>
-            <div class="col-4">
-                <button class="menu-button {% if page_name == 'profile' %}selected-button{% endif %}">
-                    <a href="{% url 'profile' %}">Hồ sơ</a>
-                </button>
+        <div class="col-5 d-flex align-items-center justify-content-end">
+            <div class="row">
+                <div class="col-6">
+                    <button class="menu-button {% if page_name == 'forum' %}selected-button{% endif %}">
+                        <a href="{% url 'login' %}">Đăng nhập</a>
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="menu-button {% if page_name == 'news' %}selected-button{% endif %}">
+                        <a href="{% url 'register' %}">Đăng ký</a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    {% endif %}
 </div>
 
 {% comment %} sidebar left mobile screen {% endcomment %}
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-<div class="offcanvas-header">
-    <a href="{% url 'home' %}" class="text-decoration-none">
-        <div class="d-flex sidebar-header align-self-center">
-            <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-laptop">
-            <h5 class="offcanvas-title align-self-center ms-1 text-black" id="offcanvasExampleLabel">Đôi bạn cùng tiến</h5>
-        </div>
-    </a>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-</div>
-<div class="offcanvas-body">
-    <ul class="sidebar-left">
-        <li  id="homeButton" class="menu-button menu-button-width {% if page_name == '' %}selected-button{% endif %}">
-            <a href="{% url 'home' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/homeIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Trang chủ</span>
-                </button>
-            </a>
-        </li>
-        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'couple_friends' %}selected-button{% endif %}">
-            <a href="{% url 'couple_friends' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/coupleFriendsIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Đôi bạn</span>
-                </button>
-            </a>
-        </li>
-        <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'documents' %}selected-button{% endif %}">
-            <a href="{% url 'documents' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/documentIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Cùng tiến</span>
-                </button>
-            </a>
-        </li>
-        <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'forum' %}selected-button{% endif %}">
-            <a href="{% url 'forum' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/forumIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Diễn đàn</span>
-                </button>
-            </a>
-        </li>
-        <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'news' %}selected-button{% endif %}">
-            <a href="{% url 'news' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/newsIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Tin tức</span>
-                </button>
-            </a>
-        </li>
-        <li id="contactButton" class="menu-button menu-button-width {% if page_name == 'profile' %}selected-button{% endif %}">
-            <a href="{% url 'profile' %}" class="d-flex align-items-center">
-                <button class="btn d-flex align-items-center">
-                    <img src="{% static 'icons/personIcon.svg' %}" alt="home-icon">
-                    <span class="ms-3 sidebar-list">Hồ sơ</span>
-                </button>
-            </a>
-        </li>
-    </ul>
-</div>
+    <div class="offcanvas-header">
+        <a href="{% url 'home' %}" class="text-decoration-none">
+            <div class="d-flex sidebar-header align-self-center">
+                <img src="{% static 'img/uet_logo.jpg' %}" alt="logo" class="img-logo-laptop">
+                <h5 class="offcanvas-title align-self-center ms-1 text-black" id="offcanvasExampleLabel">Đôi bạn cùng tiến</h5>
+            </div>
+        </a>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="sidebar-left">
+            <li  id="homeButton" class="menu-button menu-button-width {% if page_name == '' %}selected-button{% endif %}">
+                <a href="{% url 'home' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/homeIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Trang chủ</span>
+                    </button>
+                </a>
+            </li>
+            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'couple_friends' %}selected-button{% endif %}">
+                <a href="{% url 'couple_friends' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/coupleFriendsIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Đôi bạn</span>
+                    </button>
+                </a>
+            </li>
+            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'documents' %}selected-button{% endif %}">
+                <a href="{% url 'documents' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/documentIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Cùng tiến</span>
+                    </button>
+                </a>
+            </li>
+            <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'forum' %}selected-button{% endif %}">
+                <a href="{% url 'forum' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/forumIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Diễn đàn</span>
+                    </button>
+                </a>
+            </li>
+            <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'news' %}selected-button{% endif %}">
+                <a href="{% url 'news' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/newsIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Tin tức</span>
+                    </button>
+                </a>
+            </li>
+            <li id="contactButton" class="menu-button menu-button-width {% if page_name == 'profile' %}selected-button{% endif %}">
+                <a href="{% url 'profile' %}" class="d-flex align-items-center">
+                    <button class="btn d-flex align-items-center">
+                        <img src="{% static 'icons/personIcon.svg' %}" alt="home-icon">
+                        <span class="ms-3 sidebar-list">Hồ sơ</span>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
