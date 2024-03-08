@@ -2,7 +2,7 @@
     background-color: #f8f9fb;
 }
 
-.detail-post-content {
+.detail-post-content, .request-box {
     background-color: white;
     border-radius: 10px;
 }

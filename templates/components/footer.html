@@ -1,6 +1,7 @@
 {% load static %}
 
 {% block footer %}
+{% if page_name != 'wellcome_page' %}
 <div class="container-fluid register-info">
     <div class="row">
         <div class="col">
@@ -28,6 +29,7 @@
         </form>
     </div>
 </div>
+{% endif %}
 
 <div class="container-fluid footer">
     <div class="row">

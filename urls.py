@@ -30,13 +30,15 @@ from views import (
     news_view,
     profile_view,
     register_view,
+    wellcome_page_view,
 )
 
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
-    path("", home_view, name="home"),
+    path("", wellcome_page_view, name="wellcome_page"),
     path("dang-nhap/", login_view, name="login"),
     path("dang-ky/", register_view, name="register"),
+    path("trang-chu", home_view, name="home"),
     path("doi-ban/", couple_friends_view, name="couple_friends"),
     path(
         "cung-tien/",
