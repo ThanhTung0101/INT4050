@@ -57,7 +57,7 @@
     background-color: white;
 }
 
-ul > li, li  a {
+.footer ul > li, li  a {
     height: 1.875rem;
     font-family: var(--font-text-content);
     font-size: 0.875rem;

@@ -1,0 +1,22 @@
+.login100-form-title {
+    font-family: "Big Shoulders Display";
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.input100, .forgot-password, .register {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.login100-form-btn {
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.forgot-password:hover, .register:hover {
+    color: #2172cd;
+    cursor: pointer;
+}

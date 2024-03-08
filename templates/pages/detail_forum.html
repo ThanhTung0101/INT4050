@@ -1,0 +1,131 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="detail-post-body" class="container-fluid py-4">
+    <div class="container detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-9 col-sm-8 col-12">
+                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
+                Thanh Tùng
+            </div>
+            <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 ms-5 d-flex align-items-center">
+                <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                07/03/2024
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 post-forum-title">
+                Làm cách nào để học tập tốt hơn?
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4 d-flex category-and-tags-box">
+                <button class="btn px-2 py-1 me-2 text-white bg-primary">Đời sống</button>
+                {% for post_tags in "abc" %}
+                <button class="btn px-2 py-1 tag-button me-2">Tag</button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                Get ready for Movember! <br>
+                It’s time to channel your inner Magnum P.I., Ron Swanson or Hercule Poroit! It’s the time that all guys (or gals) love and all our partners hate It’s Movember!
+                <br>
+                Throughout November we will be inviting all community members to help raise awareness and funds for the lives of men affected by cancer and mental health problems via the Movember Foundation 10.
+                <br>
+                How Does it Work? <br>
+                Authors and customers with facial hair unite! Simply grow, groom, and share your facial hair during November! Even females can enter if they desire (be creative, ladies!). Be inspired by checking out last year’s highlights 28.
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6 col-12 pb-4 d-flex">
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    <img src="{% static 'icons/likeIcon.svg' %}" class="me-1" alt="like-Icon">
+                    1000
+                </button>
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    <img src="{% static 'icons/dislikeIcon.svg' %}" class="me-1" alt="dislike-Icon">
+                    400
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'icons/shareIcon.svg' %}" class="me-1" alt="share-Icon">
+                        Chia sẻ
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <a class="dropdown-item d-flex align-items-center" "https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+                            <li class="ps-1 m-0">
+                                <img src="{% static 'icons/facebookIconProfile.svg' %}" alt="facebook-icon" class="me-2">
+                                Facebook
+                            </li>
+                        </a>
+                        <a class="dropdown-item d-flex align-items-center" href="#">
+                            <li class="ps-1 m-0">
+                                <img src="{% static 'icons/linkIcon.svg' %}" alt="facebook-icon" class="me-2">
+                                Sao chép liên kết
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% for comment in "abcde" %}
+    <div class="container mt-4 detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-9 col-sm-8 col-12">
+                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
+                Thanh Tùng
+            </div>
+            <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 ms-5 d-flex align-items-center">
+                <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                07/03/2024
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 post-forum-text">
+                Làm cách nào để học tập tốt hơn?
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6 col-12 pb-4 d-flex">
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    <img src="{% static 'icons/likeIcon.svg' %}" class="me-1" alt="like-Icon">
+                    1000
+                </button>
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    <img src="{% static 'icons/dislikeIcon.svg' %}" class="me-1" alt="dislike-Icon">
+                    400
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="container mt-4">
+        <div class="row py-4 post-user-info">
+            <div class="col-12 d-flex justify-content-center align-items-start">
+                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
+                <textarea rows="10" cols="100%" placeholder='Viết câu trả lời của bạn...' class="reply-input p-3"></textarea>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                <button class="btn me-4 my-3 btn-outline-primary d-flex align-items-center">
+                    Trả lời
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock content %}
