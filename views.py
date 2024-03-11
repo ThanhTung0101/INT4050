@@ -63,6 +63,17 @@ def couple_friends_view(request):
     )
 
 
+def send_request_view(request):
+
+    return render(
+        request,
+        "pages/send_request.html",
+        context={
+            "page_name": "send_request",
+        },
+    )
+
+
 def documents_view(request):
 
     # TODO: add get post in documents
@@ -166,6 +177,17 @@ def detail_forum_view(request):
         "pages/detail_forum.html",
         context={
             "page_name": "detail_forum",
+        },
+    )
+
+
+def add_forum_view(request):
+
+    return render(
+        request,
+        "pages/add_forum.html",
+        context={
+            "page_name": "add_forum",
         },
     )
 

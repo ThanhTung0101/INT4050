@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 
 from views import (
+    add_forum_view,
     couple_friends_view,
     detail_document_view,
     detail_forum_view,
@@ -30,6 +31,7 @@ from views import (
     news_view,
     profile_view,
     register_view,
+    send_request_view,
     upload_document_view,
     wellcome_page_view,
 )
@@ -41,12 +43,14 @@ urlpatterns = [
     path("dang-ky/", register_view, name="register"),
     path("trang-chu", home_view, name="home"),
     path("doi-ban/", couple_friends_view, name="couple_friends"),
+    path("gui-yeu-cau/", send_request_view, name="send_request"),
     path("cung-tien/", documents_view, name="documents"),
     path("dong-gop-tai-lieu/", upload_document_view, name="upload_document"),
     path("tai-lieu/", detail_document_view, name="detail_document"),
     path("thao-luan/", detail_forum_view, name="detail_forum"),
     path("dien-dan/", forum_view, name="forum"),
     path("thao-luan/", detail_forum_view, name="detail_forum"),
+    path("them-thao-luan/", add_forum_view, name="add_forum"),
     path("tin-tuc/", news_view, name="news"),
     path(
         "chi-tiet-tin-tuc/<int:post_id>/", detail_news_view, name="detail_news"
