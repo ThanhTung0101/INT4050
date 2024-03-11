@@ -4,12 +4,12 @@ from .document import Document
 from .student import Student
 
 
-class CommentDocument(models.Model):
+class DocumentComment(models.Model):
     student = models.ForeignKey(
-        Student, on_delete=models.CASCADE, related_name="comment_documents"
+        Student, on_delete=models.CASCADE, related_name="document_comments"
     )
     document = models.ForeignKey(
-        Document, on_delete=models.CASCADE, related_name="comment_documents"
+        Document, on_delete=models.CASCADE, related_name="document_comments"
     )
     text = models.TextField()
 

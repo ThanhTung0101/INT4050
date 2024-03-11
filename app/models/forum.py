@@ -1,6 +1,6 @@
 from django.db import models
 
-from app.models import Student
+from .student import Student
 
 
 class Forum(models.Model):

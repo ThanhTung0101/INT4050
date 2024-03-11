@@ -3,7 +3,7 @@ from django.db import models
 
 from constants import ConnectType
 
-from .interest import Interest
+from .hobby import Hobby
 from .skill import Skill
 
 
@@ -18,8 +18,8 @@ class Student(models.Model):
     skills = models.ManyToManyField(
         Skill, blank=True, null=True, related_name="students"
     )
-    interests = models.ManyToManyField(
-        Interest, blank=True, null=True, related_name="students"
+    hobby = models.ManyToManyField(
+        Hobby, blank=True, null=True, related_name="students"
     )
     connect_type = models.CharField(
         choices=ConnectType.CHOICES, default=ConnectType.DEFAULT

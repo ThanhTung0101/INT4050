@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Interest:
+class Hobby(models.Model):
     name = models.CharField(max_length=50)
     percent = models.PositiveIntegerField(default=0)
 

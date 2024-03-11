@@ -1,16 +1,15 @@
 from django.db import models
 
-from app.models import Student
-
 from .group import Group
+from .student import Student
 
 
-class MessageGroup(models.Model):
+class GroupMessage(models.Model):
     student = models.ForeignKey(
-        Student, on_delete=models.CASCADE, related_name="messages_group"
+        Student, on_delete=models.CASCADE, related_name="group_messages"
     )
     group = models.ForeignKey(
-        Group, on_delete=models.CASCADE, related_name="messages_group"
+        Group, on_delete=models.CASCADE, related_name="group_messages"
     )
     message = models.TextField()
 

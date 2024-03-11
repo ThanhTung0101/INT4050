@@ -4,12 +4,12 @@ from .forum import Forum
 from .student import Student
 
 
-class DisLikeCommentForum(models.Model):
+class ForumCommentDislike(models.Model):
     student = models.ForeignKey(
         Student,
         on_delete=models.CASCADE,
-        related_name="dislike_comment_forums",
+        related_name="forum_comment_dislikes",
     )
     forum = models.ForeignKey(
-        Forum, on_delete=models.CASCADE, related_name="dislike_comment_forums"
+        Forum, on_delete=models.CASCADE, related_name="forum_comment_dislikes"
     )
