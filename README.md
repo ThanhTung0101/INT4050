@@ -9,7 +9,6 @@ graduate
 ```bash
 pyenv virtualenv INT4050
 pyenv shell INT4050
-source INT4050/bin/activate
 
 # or
 
