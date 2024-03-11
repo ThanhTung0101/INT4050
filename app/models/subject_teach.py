@@ -1,6 +1,6 @@
 from django.db import models
 
-from constants import Experiment, SubjectName
+from constants import SubjectName
 
 from .student import Student
 
@@ -14,9 +14,6 @@ class SubjectTeach(models.Model):
     )
     price = models.DecimalField(max_digits=9, decimal_places=2, blank=True)
     description = models.TextField(blank=True)
-    experiment = models.CharField(
-        choices=Experiment.CHOICES, default=Experiment.PRO
-    )
 
     def __str__(self):
         return f"Subject teach: {self.name}"

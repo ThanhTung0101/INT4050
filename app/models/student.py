@@ -12,9 +12,8 @@ class Student(models.Model):
     student_id = models.CharField(max_length=30)
     college_class = models.CharField(max_length=255)
     scholl = models.CharField(max_length=255)
-    avatar_image = models.FileField(upload_to="avatar/")
+    avatar_image = models.FileField(upload_to="avatar/", blank=True, null=True)
 
-    description = models.TextField(blank=True, null=True)
     skills = models.ManyToManyField(
         Skill, blank=True, null=True, related_name="students"
     )
