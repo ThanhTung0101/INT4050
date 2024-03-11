@@ -1,0 +1,94 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="detail-post-body" class="container-fluid py-4">
+    <div class="container detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-11 col-sm-8 col-12">
+                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
+                Thanh Tùng
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 post-forum-title">
+                <div class="mb-3">
+                    <label for="forumName" class="form-label">Tiêu đề</label>
+                    <input type="text" class="form-control" id="forumName">
+                  </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                <div class="mb-3">
+                    <a data-bs-toggle="modal" data-bs-target="#add-forum-category">
+                        <button class="btn btn-outline-primary me-3 filter-content">Thêm danh mục</button>
+                    </a>
+                    <a data-bs-toggle="modal" data-bs-target="#add-forum-tags">
+                        <button class="btn btn-outline-primary me-3 filter-content">Thêm tags</button>
+                    </a>
+
+                    <div class="modal modal-fluid modal-vertical fade" id="add-forum-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary">
+                                    <h3 class="modal-header-text text-white mt-2">Chọn danh mục</h3>
+                                    <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body modal-content-text">
+                                    {% comment %} {% for category in "abcd" %}
+                                    <button class="btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if !category.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
+                                    {% endfor %} {% endcomment %}
+                                </div>
+                                <div class="modal-footer modal-content-text d-flex justify-content-end">
+                                    <button class="btn btn-outline-primary me-3"><strong>Thêm</strong></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal modal-fluid modal-vertical fade" id="add-forum-tags" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog ">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary">
+                                    <h3 class="modal-header-text text-white mt-2">Thêm tags</h3>
+                                    <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body modal-content-text">
+                                    {% comment %} {% for tag in "abcd" %}
+                                    <button class="btn px-2 py-1 text-white {% if tag.selected %}selected-filter-items{% endif %}" style="{% if !tag.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
+                                    {% endfor %} {% endcomment %}
+                                </div>
+                                <div class="modal-footer modal-content-text d-flex justify-content-end">
+                                    <button class="btn btn-outline-primary me-3"><strong>Thêm</strong></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                <div class="mb-3">
+                    <label for="forumDescription" class="form-label post-forum-title">Nội dung thảo luận</label>
+                    <textarea class="form-control post-forum-text" id="forumDescription" rows="4" cols="100%"></textarea>
+                  </div>
+            </div>
+        </div>
+        <div class="row post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6 col-12 pb-4 d-flex">
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    Đăng thảo luận
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
