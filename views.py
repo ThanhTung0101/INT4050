@@ -100,6 +100,17 @@ def documents_view(request):
     )
 
 
+def upload_document_view(request):
+
+    return render(
+        request,
+        "pages/upload_document.html",
+        context={
+            "page_name": "upload_document",
+        },
+    )
+
+
 def detail_document_view(request):
 
     return render(

@@ -30,6 +30,7 @@ from views import (
     news_view,
     profile_view,
     register_view,
+    upload_document_view,
     wellcome_page_view,
 )
 
@@ -40,18 +41,11 @@ urlpatterns = [
     path("dang-ky/", register_view, name="register"),
     path("trang-chu", home_view, name="home"),
     path("doi-ban/", couple_friends_view, name="couple_friends"),
-    path(
-        "cung-tien/",
-        documents_view,
-        name="documents",
-    ),
+    path("cung-tien/", documents_view, name="documents"),
+    path("dong-gop-tai-lieu/", upload_document_view, name="upload_document"),
     path("tai-lieu/", detail_document_view, name="detail_document"),
     path("thao-luan/", detail_forum_view, name="detail_forum"),
-    path(
-        "dien-dan/",
-        forum_view,
-        name="forum",
-    ),
+    path("dien-dan/", forum_view, name="forum"),
     path("thao-luan/", detail_forum_view, name="detail_forum"),
     path("tin-tuc/", news_view, name="news"),
     path(
