@@ -32,6 +32,7 @@ from views import (
     profile_view,
     register_view,
     send_request_view,
+    update_profile_view,
     upload_document_view,
     wellcome_page_view,
 )
@@ -56,6 +57,7 @@ urlpatterns = [
         "chi-tiet-tin-tuc/<int:post_id>/", detail_news_view, name="detail_news"
     ),
     path("ho-so/", profile_view, name="profile"),
+    path("chinh-sua-ho-so/", update_profile_view, name="update_profile"),
     path("cms/", include("cms.urls")),
     path("post/", include("djangocms_blog.urls")),
     path("taggit_autosuggest/", include("taggit_autosuggest.urls")),

@@ -33,12 +33,12 @@
                 </div>
                 <div class="col-4">
                     <button class="menu-button {% if page_name == 'couple_friends' %}selected-button{% endif %}">
-                        <a href="{% url 'couple_friends' %}">Đôi bạn</a>
+                        <a href="{% url 'couple_friends' %}">Kết nối</a>
                     </button>
                 </div>
                 <div class="col-4">
                     <button class="menu-button {% if page_name == 'documents' %}selected-button{% endif %}">
-                        <a href="{% url 'documents' %}">Cùng tiến</a>
+                        <a href="{% url 'documents' %}">Tài liệu</a>
                     </button>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                 <a href="{% url 'couple_friends' %}" class="d-flex align-items-center">
                     <button class="btn d-flex align-items-center">
                         <img src="{% static 'icons/coupleFriendsIcon.svg' %}" alt="home-icon">
-                        <span class="ms-3 sidebar-list">Đôi bạn</span>
+                        <span class="ms-3 sidebar-list">Kết nối</span>
                     </button>
                 </a>
             </li>
@@ -150,7 +150,7 @@
                 <a href="{% url 'documents' %}" class="d-flex align-items-center">
                     <button class="btn d-flex align-items-center">
                         <img src="{% static 'icons/documentIcon.svg' %}" alt="home-icon">
-                        <span class="ms-3 sidebar-list">Cùng tiến</span>
+                        <span class="ms-3 sidebar-list">Tài liệu</span>
                     </button>
                 </a>
             </li>

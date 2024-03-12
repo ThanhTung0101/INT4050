@@ -260,3 +260,14 @@ def profile_view(request):
             "page_name": "profile",
         },
     )
+
+
+def update_profile_view(request):
+
+    return render(
+        request,
+        "pages/update_profile.html",
+        context={
+            "page_name": "update_profile",
+        },
+    )
