@@ -3,6 +3,20 @@
 
 {% block content %}
 <div id="detail-post-body" class="container-fluid py-4">
+    <div class="pb-4">
+        <div class="col page-adress d-flex align-items-center justify-content-center">
+          <a href="{% url 'home' %}">
+            <p class="mb-0">TRANG CHỦ</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <a href="{% url 'forum' %}">
+            <p class="mb-0">DIỄN ĐÀN</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <p class="current-page">THÊM THẢO LUẬN</p>
+        </div>
+    </div>
+
     <div class="container detail-post-content">
         <div class="row py-4 post-user-info">
             <div class="col-lg-1"></div>
