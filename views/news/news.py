@@ -5,11 +5,11 @@ from djangocms_blog.models import Post
 
 class NewsPage(TemplateView):
     # Nen dung list view
-    template_name = "pages/detail_document.html"
+    template_name = "pages/news.html"
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        context["page_name"] = "detail_document"
+        context["page_name"] = "news"
 
         posts = Post.objects.order_by("-date_published").prefetch_related(
             "translations"

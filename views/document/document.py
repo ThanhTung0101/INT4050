@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 
 
 class DocumentPage(TemplateView):
-    template_name = "pages/upload_document.html"
+    template_name = "pages/documents.html"
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
