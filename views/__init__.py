@@ -4,7 +4,7 @@ from .forum import AddForumPage, DetailForumPage, ForumPage
 from .home import HomePage
 from .login import SignIn
 from .news import DetailNewsPage, NewsPage
-from .profile import ProfilePage
+from .profile import ProfilePage, UpdateProfilePage
 from .register import SignUp
 from .send_request import SendRequestPage
 from .wellcome import WellcomePage
@@ -25,4 +25,5 @@ __all__ = [
     "DetailDocumentPage",
     "DocumentPage",
     "UploadDocumentPage",
+    "UpdateProfilePage",
 ]
