@@ -1,5 +1,7 @@
 from .couple_friend import CoupleFriendPage
-from .document import DetailDocumentPage, DocumentPage, UploadDocumentPage
+from .document.detail import DetailDocumentPage
+from .document.list import DocumentListView
+from .document.upload import UploadDocumentPage
 from .forum import AddForumPage, DetailForumPage, ForumPage
 from .home import HomePage
 from .login import SignIn
@@ -23,7 +25,7 @@ __all__ = [
     "DetailForumPage",
     "ForumPage",
     "DetailDocumentPage",
-    "DocumentPage",
     "UploadDocumentPage",
     "UpdateProfilePage",
+    "DocumentListView",
 ]

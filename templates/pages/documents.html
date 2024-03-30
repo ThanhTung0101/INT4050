@@ -48,7 +48,7 @@
 
 <div id="forum-content">
     <div class="container mb-4">
-        {% for document in "abcdefgh" %}
+        {% for document in object_lists %}
         <div class="row document-box py-4 {% if forloop.counter|divisibleby:2 %}bg-item-document{% endif %}">
             <div class="col-12">
                 {% include 'components/document_box.html' with is_home_page=False %}

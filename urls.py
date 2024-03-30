@@ -24,7 +24,6 @@ from views import (
     DetailDocumentPage,
     DetailForumPage,
     DetailNewsPage,
-    DocumentPage,
     ForumPage,
     HomePage,
     NewsPage,
@@ -38,6 +37,7 @@ from views import (
 )
 
 urlpatterns = [
+    path("", include("app.urls")),
     re_path(r"^admin/", admin.site.urls),
     path("", WellcomePage.as_view(), name="wellcome_page"),
     path("dang-nhap/", SignIn.as_view(), name="login"),
@@ -45,7 +45,6 @@ urlpatterns = [
     path("trang-chu/", HomePage.as_view(), name="home"),
     path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
     path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
-    path("cung-tien/", DocumentPage.as_view(), name="documents"),
     path(
         "dong-gop-tai-lieu/",
         UploadDocumentPage.as_view(),
