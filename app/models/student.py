@@ -24,7 +24,7 @@ class Student(BaseModel):
     github_link = models.URLField(default="", blank=True, max_length=255)
     instagram_link = models.URLField(default="", blank=True, max_length=255)
     phone = models.CharField(default="", blank=True, max_length=255)
-    address = models.URLField(default="", blank=True, max_length=255)
+    address = models.CharField(default="", blank=True, max_length=255)
 
-    def full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+    def __str__(self):
+        return f"{self.user}"
