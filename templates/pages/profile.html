@@ -188,56 +188,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
-                                        <td>
-                                            <a href="{% url 'my_request' %}">
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Chi tiết
-                                                </button>
-                                            </a>
-                                            <a href="#" download>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Tải xuông
-                                                </button>
-                                            </a>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
-                                        <td>
-                                            <a href="{% url 'my_request' %}">
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Chi tiết
-                                                </button>
-                                            </a>
-                                            <a href="#" download>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Tải xuống
-                                                </button>
-                                            </a>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
-                                        <td>
-                                            <a href="{% url 'my_request' %}">
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Chi tiết
-                                                </button>
-                                            </a>
-                                            <a href="#" download>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Tải xuống
-                                                </button>
-                                            </a>
-                                        </td>
-                                      </tr>
+                                        {% for liked_document in "abcd" %}
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
+                                            <td>
+                                                <a href="{% url 'my_request' %}">
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                                    Chi tiết
+                                                    </button>
+                                                </a>
+                                                <a href="#" download>
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                                    Tải xuông
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
+                                {% include 'components/pagination.html' with paginator_data=page_obj %}
                             </div>
                         </div>
                     </div>
