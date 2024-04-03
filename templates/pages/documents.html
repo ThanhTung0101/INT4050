@@ -48,7 +48,7 @@
 
 <div id="forum-content">
     <div class="container mb-4">
-        {% for document in document_list %}
+        {% for document in object_list %}
         <div class="row document-box py-4 {% if forloop.counter|divisibleby:2 %}bg-item-document{% endif %}">
             <div class="col-12">
                 {% include 'components/document_box.html' with is_home_page=False document=document%}
@@ -58,7 +58,5 @@
     </div>
 </div>
 
-{% if documents_paginator.has_other_pages %}
-  {% include 'components/pagination.html' with paginator_data=documents_paginator %}
-{% endif %}
+{% include 'components/pagination.html' with paginator_data=page_obj %}
 {% endblock content %}

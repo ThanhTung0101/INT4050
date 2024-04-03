@@ -29,7 +29,6 @@ from views import (
     NewsPage,
     ProfilePage,
     SendRequestPage,
-    SignIn,
     SignUp,
     UpdateProfilePage,
     UploadDocumentPage,
@@ -40,9 +39,8 @@ urlpatterns = [
     path("", include("app.urls")),
     re_path(r"^admin/", admin.site.urls),
     path("", WellcomePage.as_view(), name="wellcome_page"),
-    path("dang-nhap/", SignIn.as_view(), name="login"),
     path("dang-ky/", SignUp.as_view(), name="register"),
-    path("trang-chu/", HomePage.as_view(), name="home"),
+    path("home/", HomePage.as_view(), name="home"),
     path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
     path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
     path(
