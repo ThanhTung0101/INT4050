@@ -26,6 +26,7 @@ from views import (
     DetailNewsPage,
     ForumPage,
     HomePage,
+    MyRequestPage,
     NewsPage,
     ProfilePage,
     SendRequestPage,
@@ -63,6 +64,7 @@ urlpatterns = [
     path(
         "chinh-sua-ho-so/", UpdateProfilePage.as_view(), name="update_profile"
     ),
+    path("yeu-cau-cua-toi/", MyRequestPage.as_view(), name="my_request"),
     path("cms/", include("cms.urls")),
     path("post/", include("djangocms_blog.urls")),
     path("taggit_autosuggest/", include("taggit_autosuggest.urls")),

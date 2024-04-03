@@ -1,0 +1,175 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="detail-post-body" class="container-fluid py-4">
+    <div class="pb-4">
+        <div class="col page-adress d-flex align-items-center justify-content-center">
+          <a href="{% url 'home' %}">
+            <p class="mb-0">TRANG CHỦ</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <a href="{% url 'profile' %}">
+            <p class="mb-0">HỒ SƠ</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <p class="current-page">Yêu cầu của tôi</p>
+        </div>
+    </div>
+
+    <div class="container detail-post-content">
+        <div class="row pt-4">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 post-forum-title">
+                Làm cách nào để học tập tốt hơn?
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4 d-flex category-and-tags-box">
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                Get ready for Movember! <br>
+                It’s time to channel your inner Magnum P.I., Ron Swanson or Hercule Poroit! It’s the time that all guys (or gals) love and all our partners hate It’s Movember!
+                <br>
+                Throughout November we will be inviting all community members to help raise awareness and funds for the lives of men affected by cancer and mental health problems via the Movember Foundation 10.
+                <br>
+                How Does it Work? <br>
+                Authors and customers with facial hair unite! Simply grow, groom, and share your facial hair during November! Even females can enter if they desire (be creative, ladies!). Be inspired by checking out last year’s highlights 28.
+            </div>
+        </div>
+        <div class="row mt-2 post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">Giới hạn tham gia: 5</div>
+        </div>
+    </div>
+
+    <div class="container mt-4 detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-12 pb-4">
+                <h5 class="d-flex align-items-center mb-3">Danh sách đã tham gia</h5>
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>STT</th>
+                            <th>Người dùng</th>
+                            <th>Họ và tên</th>
+                            <th>Mã số sinh viên</th>
+                            <th>Lớp</th>
+                            <th>Thông tin liên hệ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>User1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td><a href="https://www.facebook.com/UETTung">Facebook</a></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>User1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td><a href="https://www.facebook.com/UETTung">Facebook</a></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>User1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td><a href="https://www.facebook.com/UETTung">Facebook</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col pb-4">
+                <h5 class="d-flex align-items-center mb-3">Danh sách gửi yêu cầu</h5>
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>MSSV</th>
+                            <th>Lớp</th>
+                            <th>Lời nhắn</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td>Chào bạn, mình là Nguyễn Văn A mình có khả năng dạy kèm bạn môn C, mình có thể sẵn sàng hỗ trợ cho bạn nhé!</td>
+                            <td>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Đồng ý
+                                    </button>
+                                </a>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Xóa yêu cầu
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td>Chào bạn, mình là Nguyễn Văn A mình có khả năng dạy kèm bạn môn C, mình có thể sẵn sàng hỗ trợ cho bạn nhé!</td>
+                            <td>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Đồng ý
+                                    </button>
+                                </a>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Xóa yêu cầu
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>20020071</td>
+                            <td>K65CD</td>
+                            <td>Chào bạn, mình là Nguyễn Văn A mình có khả năng dạy kèm bạn môn C, mình có thể sẵn sàng hỗ trợ cho bạn nhé!</td>
+                            <td>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Đồng ý
+                                    </button>
+                                </a>
+                                <a href="#">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    Xóa yêu cầu
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
