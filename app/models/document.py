@@ -10,3 +10,6 @@ class Document(BaseModel):
     owner = models.ForeignKey(
         "Student", on_delete=models.CASCADE, related_name="documents"
     )
+
+    def __str__(self):
+        return f"{self.name}"

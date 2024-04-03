@@ -37,8 +37,8 @@
                     </button>
                 </div>
                 <div class="col-4">
-                    <button class="menu-button {% if page_name == 'documents' %}selected-button{% endif %}">
-                        <a href="{% url 'documents' %}">Tài liệu</a>
+                    <button class="menu-button {% if page_name == 'documents-list' %}selected-button{% endif %}">
+                        <a href="{% url 'documents-list' %}">Tài liệu</a>
                     </button>
                 </div>
             </div>
@@ -146,8 +146,8 @@
                     </button>
                 </a>
             </li>
-            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'documents' %}selected-button{% endif %}">
-                <a href="{% url 'documents' %}" class="d-flex align-items-center">
+            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'documents-list' %}selected-button{% endif %}">
+                <a href="{% url 'documents-list' %}" class="d-flex align-items-center">
                     <button class="btn d-flex align-items-center">
                         <img src="{% static 'icons/documentIcon.svg' %}" alt="home-icon">
                         <span class="ms-3 sidebar-list">Tài liệu</span>
