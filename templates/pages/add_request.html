@@ -1,0 +1,77 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="detail-post-body" class="container-fluid py-4">
+    <div class="pb-4">
+        <div class="col page-adress d-flex align-items-center justify-content-center">
+          <a href="{% url 'home' %}">
+            <p class="mb-0">TRANG CHỦ</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <a href="{% url 'couple_friends' %}">
+            <p class="mb-0">KẾT NỐI</p>
+          </a>
+          <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
+          <p class="current-page">TẠO YÊU CẦU</p>
+        </div>
+    </div>
+
+    <div class="container detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-11 col-sm-8 col-12">
+                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px" width="40px" style="object-fit: cover;">
+                Thanh Tùng
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12">
+                <div class="mb-3">
+                    <label for="forumName" class="form-label post-forum-title">Môn học/Hoạt động</label>
+                    <select class="form-select post-forum-text" aria-label="Default select example">
+                        <option selected value="">Chọn môn học/hoạt động</option>
+                        {% for item in "abcd" %}
+                        <option value="Nhập môn lập trình">Nhập môn lập trình</option>
+                        {% endfor %}
+                      </select>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="peopleNumber" class="col-form-label post-forum-">Giới hạn người tham gia</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" id="peopleNumber" class="form-control post-forum-text" aria-describedby="passwordHelpInline">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                <div class="mb-3">
+                    <label for="forumDescription" class="form-label post-forum-title">Nội dung yêu cầu</label>
+                    <textarea class="form-control post-forum-text" id="forumDescription" rows="5" cols="100%"></textarea>
+                  </div>
+            </div>
+        </div>
+        <div class="row post-forum-text">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6 col-12 pb-4 d-flex">
+                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                    Đăng yêu cầu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
