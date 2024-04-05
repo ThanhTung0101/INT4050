@@ -1,3 +1,4 @@
+from .add_request import AddRequestPage
 from .couple_friend import CoupleFriendPage
 from .document.detail import DetailDocumentPage
 from .document.list import DocumentListView
@@ -29,4 +30,5 @@ __all__ = [
     "UpdateProfilePage",
     "DocumentListView",
     "MyRequestPage",
+    "AddRequestPage",
 ]

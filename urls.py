@@ -20,6 +20,7 @@ from django.urls import include, path, re_path
 
 from views import (
     AddForumPage,
+    AddRequestPage,
     CoupleFriendPage,
     DetailDocumentPage,
     DetailForumPage,
@@ -43,6 +44,7 @@ urlpatterns = [
     path("dang-ky/", SignUp.as_view(), name="register"),
     path("home/", HomePage.as_view(), name="home"),
     path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
+    path("add-request/", AddRequestPage.as_view(), name="add_request"),
     path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
     path(
         "dong-gop-tai-lieu/",
