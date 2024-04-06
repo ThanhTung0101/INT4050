@@ -22,7 +22,6 @@ from views import (
     AddForumPage,
     AddRequestPage,
     CoupleFriendPage,
-    DetailDocumentPage,
     DetailForumPage,
     DetailNewsPage,
     ForumPage,
@@ -31,7 +30,6 @@ from views import (
     NewsPage,
     SendRequestPage,
     SignUp,
-    UploadDocumentPage,
     WellcomePage,
 )
 
@@ -44,12 +42,6 @@ urlpatterns = [
     path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
     path("add-request/", AddRequestPage.as_view(), name="add_request"),
     path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
-    path(
-        "dong-gop-tai-lieu/",
-        UploadDocumentPage.as_view(),
-        name="upload_document",
-    ),
-    path("tai-lieu/", DetailDocumentPage.as_view(), name="detail_document"),
     path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),
     path("dien-dan/", ForumPage.as_view(), name="forum"),
     path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),

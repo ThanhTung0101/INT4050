@@ -1,6 +1,6 @@
 {% load static %}
 
-<a href="{% url "detail_document" %}" {% if is_home_page %}class="document-box ms-5{% endif %}">
+<a href="{% url 'document-detail' pk=document.pk %}" {% if is_home_page %}class="document-box ms-5{% endif %}">
     <div class="row" {% if is_home_page %}style="height: 67px;"{% endif %}>
         <div class="document-title">{{ document.name }}</div>
     </div>
