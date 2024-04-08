@@ -29,10 +29,8 @@ from views import (
     HomePage,
     MyRequestPage,
     NewsPage,
-    ProfilePage,
     SendRequestPage,
     SignUp,
-    UpdateProfilePage,
     UploadDocumentPage,
     WellcomePage,
 )
@@ -61,10 +59,6 @@ urlpatterns = [
         "chi-tiet-tin-tuc/<int:post_id>/",
         DetailNewsPage.as_view(),
         name="detail_news",
-    ),
-    path("ho-so/", ProfilePage.as_view(), name="profile"),
-    path(
-        "chinh-sua-ho-so/", UpdateProfilePage.as_view(), name="update_profile"
     ),
     path("yeu-cau-cua-toi/", MyRequestPage.as_view(), name="my_request"),
     path("cms/", include("cms.urls")),

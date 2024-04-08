@@ -9,11 +9,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{% static 'img/avt_img.jpg' %}" alt="avt_user" class="rounded-circle" width="150" height="150" style="object-fit: cover;">
+                            <img src="{{ object.student.avatar.url }}" alt="avt_user" class="rounded-circle" width="150" height="150" style="object-fit: cover;">
                             <div class="mt-3">
-                                <h4>Thanh Tùng</h4>
-                                <p class="text-secondary mb-1">K65CD</p>
-                                <p class="text-muted font-size-sm">Trường Đại học Công nghệ, ĐHQGHN</p>
+                                <h4>{{ object.username }}</h4>
+                                <p class="text-secondary mb-1">{{ object.student.classroom }}</p>
+                                <p class="text-muted font-size-sm">{{ object.student.school }}</p>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="card mt-3">
                     <ul class="my-social-box mb-1">
                         <li class="my-social mt-1">
-                            <a href="#" class="d-flex align-items-center">
+                            <a href="{{ object.student.github_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
                                     <img src="{% static 'icons/githubIconProfile.svg' %}" alt="github-icon" class="me-2">
                                     <h6 class="mb-0">Github</h6>
@@ -30,7 +30,7 @@
                         </li>
                         <hr class="my-1">
                         <li class="my-social">
-                            <a href="#" class="d-flex align-items-center">
+                            <a href="{{ object.student.fb_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
                                     <img src="{% static 'icons/facebookIconProfile.svg' %}" alt="github-icon" class="me-2">
                                     <h6 class="mb-0">Facebook</h6>
@@ -39,10 +39,10 @@
                         </li>
                         <hr class="my-1">
                         <li class="my-social">
-                            <a href="#" class="d-flex align-items-center">
+                            <a href="{{ object.student.instagram_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
                                     <img src="{% static 'icons/instagramIconProfile.svg' %}" alt="github-icon" class="me-2">
-                                    <h6 class="mb-0">Instagram</h6>
+                                    <h6 class="mb-0">Instagram</</h6>
                                 </button>
                             </a>
                         </li>
@@ -56,40 +56,40 @@
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Họ tên</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">Nguyễn Thanh Tùng</div>
+                            <div class="col-sm-9 text-secondary">{{ object.student }}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Mã số sinh viên</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">20020071</div>
+                            <div class="col-sm-9 text-secondary">{{ object.student.code }}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Email</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">thanhtungfans16@gmail.com</div>
+                            <div class="col-sm-9 text-secondary">{{ object.email }}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Điện thoại</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">0839178172</div>
+                            <div class="col-sm-9 text-secondary">{{ object.student.phone }}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Địa chỉ</h6>
                             </div>
-                            <div class="col-sm-9 text-secondary">Nam Từ Liêm, Hà Nội</div>
+                            <div class="col-sm-9 text-secondary">{{ object.student.address }}</div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="{% url 'update_profile' %}">
+                                <a href="{% url 'profile-update' %}">
                                 <button class="btn btn-outline-primary">Sửa thông tin</button>
                                 </a>
                             </div>
