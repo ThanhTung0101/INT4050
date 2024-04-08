@@ -21,7 +21,7 @@
         <div class="row py-4 post-user-info">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-sm-8 col-12">
-                <img src="{{ request.user.student.avatar.url }}" class="rounded-circle me-2" height="40px">
+                <img src="{{ request.user.student.avatar.url }}" class="rounded-circle me-2" height="40px" width="40px" style="object-fit: cover;">
                 {{ request.user.username }}
             </div>
             <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 d-none d-sm-flex align-items-center">
