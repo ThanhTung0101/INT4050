@@ -22,18 +22,14 @@ from views import (
     AddForumPage,
     AddRequestPage,
     CoupleFriendPage,
-    DetailDocumentPage,
     DetailForumPage,
     DetailNewsPage,
     ForumPage,
     HomePage,
     MyRequestPage,
     NewsPage,
-    ProfilePage,
     SendRequestPage,
     SignUp,
-    UpdateProfilePage,
-    UploadDocumentPage,
     WellcomePage,
 )
 
@@ -46,12 +42,6 @@ urlpatterns = [
     path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
     path("add-request/", AddRequestPage.as_view(), name="add_request"),
     path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
-    path(
-        "dong-gop-tai-lieu/",
-        UploadDocumentPage.as_view(),
-        name="upload_document",
-    ),
-    path("tai-lieu/", DetailDocumentPage.as_view(), name="detail_document"),
     path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),
     path("dien-dan/", ForumPage.as_view(), name="forum"),
     path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),
@@ -61,10 +51,6 @@ urlpatterns = [
         "chi-tiet-tin-tuc/<int:post_id>/",
         DetailNewsPage.as_view(),
         name="detail_news",
-    ),
-    path("ho-so/", ProfilePage.as_view(), name="profile"),
-    path(
-        "chinh-sua-ho-so/", UpdateProfilePage.as_view(), name="update_profile"
     ),
     path("yeu-cau-cua-toi/", MyRequestPage.as_view(), name="my_request"),
     path("cms/", include("cms.urls")),
