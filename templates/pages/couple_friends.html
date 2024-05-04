@@ -17,7 +17,7 @@
                     <a data-bs-toggle="modal" data-bs-target="#request-filter">
                         <button class="btn btn-outline-primary me-3 filter-content">Hoạt động</button>
                     </a>
-                    <a href="{% url 'add_request' %}">
+                    <a href="{% url 'connect-create' %}">
                         <button class="btn btn-outline-primary filter-content">Tạo yêu cầu</button>
                     </a>
                 </div>
@@ -30,6 +30,14 @@
             </div>
         </div>
     </div>
+
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+        <strong>Success!</strong> {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <div class="modal modal-fluid modal-vertical fade" id="subject-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
@@ -94,7 +102,7 @@
                 <div class="row mt-2">
                     <div class="col-6 d-flex align-items-center">
                         <img src="{% static 'icons/membersIcon.svg' %}" class="me-2" alt="members-icon">
-                        {{ connect.people.count }}
+                        {{ connect.count_connect }}
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-end">
                         <a href="{% url 'connect-detail' pk=connect.pk %}">

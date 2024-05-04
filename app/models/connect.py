@@ -16,8 +16,10 @@ class Connect(BaseModel):
         on_delete=models.CASCADE,
         related_name="subject_connects",
     )
-    people = models.ManyToManyField(
-        "Student",
-        related_name="people_connects",
-        blank=True,
-    )
+    max_people = models.PositiveBigIntegerField(default=1)
+
+    @property
+    def count_connect(self):
+        from app.models import ConnectTicket
+
+        return ConnectTicket.objects.filter(connect=self).count()

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div id="detail-post-body" class="container-fluid py-4">
+<form id="detail-post-body" class="container-fluid py-4" method="post" action="{% url 'add-connect' %}">
     <div class="pb-4">
         <div class="col page-adress d-flex align-items-center justify-content-center">
           <a href="{% url 'home' %}">
@@ -45,10 +45,11 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4 modal-subject-description">
                 <img src="{% static 'icons/membersIcon.svg' %}" class="me-2" alt="members-icon">
-                Số người tham gia: {{ object.people.count }}
+                Số người tham gia: {{ object.count_connect }}
             </div>
         </div>
     </div>
+    <input name="connect" value="{{ connect.pk }}" hidden/>
 
     <div class="container detail-post-content">
         <div class="row pt-3 mt-3">
@@ -56,14 +57,14 @@
             <div class="col-sm-11 col-12 pb-4">
                 <div class="mb-3">
                     <label for="forumDescription" class="form-label post-forum-title">Nội dung lời nhắn</label>
-                    <textarea class="form-control post-forum-text" id="forumDescription" rows="4" cols="100%"></textarea>
+                    <textarea class="form-control post-forum-text" name="message" id="forumDescription" rows="4" cols="100%"></textarea>
                 </div>
             </div>
         </div>
         <div class="row post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
-                <a href="{% url 'couple_friends' %}">
+                <a href="{% url 'connects-list' %}">
                 <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
                     Gửi yêu cầu kết nối
                 </button>
@@ -71,6 +72,6 @@
             </div>
         </div>
     </div>
-</div>
+</form>
 
 {% endblock content %}
