@@ -9,7 +9,7 @@
             <p class="mb-0">TRANG CHỦ</p>
           </a>
           <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
-          <a href="{% url 'couple_friends' %}">
+          <a href="{% url 'connects-list' %}">
             <p class="mb-0">KẾT NỐI</p>
           </a>
           <span class="d-flex align-items-center"><img src="{% static 'icons/arrowRightBlack.svg' %}" class="w-100" alt="arrow"></span>
@@ -66,9 +66,11 @@
         <div class="row post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
+                <a href="{% url 'couple_friends' %}">
                 <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
                     Đăng yêu cầu
                 </button>
+                </a>
             </div>
         </div>
     </div>

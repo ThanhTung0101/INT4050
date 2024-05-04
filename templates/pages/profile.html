@@ -14,6 +14,25 @@
                                 <h4>{{ object.username }}</h4>
                                 <p class="text-secondary mb-1">{{ object.student.classroom }}</p>
                                 <p class="text-muted font-size-sm">{{ object.student.school }}</p>
+                                {% comment %} <a href="{% url 'wellcome_page' %}"><button class="btn btn-primary">Đăng xuất</button></a> {% endcomment %}
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogoutConfirm">
+                                    Đăng xuất
+                                </button>
+
+                                <div class="modal fade" id="modalLogoutConfirm" tabindex="-1" aria-labelledby="modalLogoutConfirmLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="modalLogoutConfirmLabel">Bạn chắc chắn muốn đăng xuất?</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                                          <a href="{% url 'wellcome_page' %}"><button type="button" class="btn btn-primary">Đăng xuất</button></a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
