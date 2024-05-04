@@ -26,7 +26,7 @@
             </div>
             <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 d-none d-sm-flex align-items-center">
                 <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                {{ object.created_at|date}}
+                {{ object.created_at|date:"d/m/Y" }}
             </div>
         </div>
         <div class="row">
