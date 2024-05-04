@@ -3,7 +3,7 @@ from django.db import models
 from .base import BaseModel
 
 
-class Post(BaseModel):
+class Article(BaseModel):
     owner = models.ForeignKey(
         "Student",
         on_delete=models.CASCADE,

@@ -1,14 +1,16 @@
+from .article import Article
 from .attachment import Attachment
 from .base import BaseModel
 from .category import Category
 from .comment import Comment
+from .connect import Connect
 from .document import Document
 from .forum import Forum
 from .hobby import Hobby
 from .like import Like
-from .post import Post
 from .skill import Skill
 from .student import Student
+from .subject import Subject
 from .tag import Tag
 
 __all__ = [
@@ -19,9 +21,11 @@ __all__ = [
     "Forum",
     "Hobby",
     "Like",
-    "Post",
     "Skill",
     "Student",
     "Tag",
+    "Article",
     "Attachment",
+    "Subject",
+    "Connect",
 ]

@@ -23,4 +23,22 @@ urlpatterns = [
         views.ProfileUpdateView.as_view(),
         name="profile-update",
     ),
+    path("forums", views.ForumListView.as_view(), name="forums-list"),
+    path(
+        "forums/detail/<int:pk>/",
+        views.ForumDetailView.as_view(),
+        name="forum-detail",
+    ),
+    path("posts/", views.ArticleListView.as_view(), name="posts-list"),
+    path(
+        "post/detail/<int:pk>/",
+        views.ArticleDetailView.as_view(),
+        name="post-detail",
+    ),
+    path("connects/", views.ConnectListView.as_view(), name="connects-list"),
+    path(
+        "connects/detail/<int:pk>",
+        views.ConnectDetailView.as_view(),
+        name="connect-detail",
+    ),
 ]

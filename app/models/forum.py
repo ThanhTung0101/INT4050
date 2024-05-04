@@ -4,7 +4,8 @@ from .base import BaseModel
 
 
 class Forum(BaseModel):
-    name = models.CharField(default="", blank=True, max_length=255)
+    name = models.CharField(max_length=255)
+    description = models.TextField(default="", max_length=2048, blank=True)
     owner = models.ForeignKey(
         "Student",
         on_delete=models.CASCADE,

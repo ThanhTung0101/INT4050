@@ -77,8 +77,8 @@
             <div class="col-md-1 d-none d-md-flex justify-content-center">Phản hồi</div>
             <div class="col-md-2 d-none d-md-flex justify-content-center">Ngày đăng</div>
         </div>
-        {% for post in "abcdefgh" %}
-        <a href="{% url 'detail_forum' %}">
+        {% for forum in object_list %}
+        <a href="{% url 'forum-detail' pk=forum.pk %}"
             <div class="row content-table py-4 px-3 {% if forloop.counter|divisibleby:2 %}bg-post-forum{% endif %}">
                 <div class="col-md-6">
                     <div class="row">
@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-10 post-sub-title d-flex justify-content-center align-items-center">
                             <div class="row">
-                                <div>Thắc mắc về nhiều điều, mỗi điều có một số vấn đề, mỗi một vấn đề có nhiều ý kiến cần thảo luận, mỗi ý kiến được tổng hợp từ nhiều người,....</div>
+                                <div>{{ forum.description }}</div>
                                 <div class="tags-box d-flex mt-2">
                                     {% for post_tags in "abc" %}
                                     <button class="btn px-2 py-1 tag-button me-2">Tag</button>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-md-1 d-none d-md-flex likes-number justify-content-center align-items-center">30</div>
                 <div class="col-md-1 d-none d-md-flex replies-number justify-content-center align-items-center"><strong>50</strong></div>
-                <div class="col-md-2 d-none d-md-flex date-info justify-content-center align-items-center">30/2/2024</div>
+                <div class="col-md-2 d-none d-md-flex date-info justify-content-center align-items-center">{{ forum.created_at }}</div>
             </div>
         </a>
         {% endfor %}
@@ -111,6 +111,6 @@
 </div>
 
 {% if forum_paginator.has_other_pages %}
-  {% include 'components/pagination.html' with paginator_data=forum_paginator %}
+{% include 'components/pagination.html' with paginator_data=forum_paginator %}
 {% endif %}
 {% endblock content %}

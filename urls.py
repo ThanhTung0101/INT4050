@@ -21,14 +21,10 @@ from django.urls import include, path, re_path
 from views import (
     AddForumPage,
     AddRequestPage,
-    CoupleFriendPage,
-    DetailForumPage,
     DetailNewsPage,
-    ForumPage,
     HomePage,
     MyRequestPage,
     NewsPage,
-    SendRequestPage,
     SignUp,
     WellcomePage,
 )
@@ -39,12 +35,7 @@ urlpatterns = [
     path("", WellcomePage.as_view(), name="wellcome_page"),
     path("dang-ky/", SignUp.as_view(), name="register"),
     path("home/", HomePage.as_view(), name="home"),
-    path("doi-ban/", CoupleFriendPage.as_view(), name="couple_friends"),
     path("add-request/", AddRequestPage.as_view(), name="add_request"),
-    path("gui-yeu-cau/", SendRequestPage.as_view(), name="send_request"),
-    path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),
-    path("dien-dan/", ForumPage.as_view(), name="forum"),
-    path("thao-luan/", DetailForumPage.as_view(), name="detail_forum"),
     path("them-thao-luan/", AddForumPage.as_view(), name="add_forum"),
     path("tin-tuc/", NewsPage.as_view(), name="news"),
     path(

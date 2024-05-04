@@ -32,8 +32,8 @@
                     </button>
                 </div>
                 <div class="col-4">
-                    <button class="menu-button {% if page_name == 'couple_friends' %}selected-button{% endif %}">
-                        <a href="{% url 'couple_friends' %}">Kết nối</a>
+                    <button class="menu-button {% if page_name == 'connects-list' %}selected-button{% endif %}">
+                        <a href="{% url 'connects-list' %}">Kết nối</a>
                     </button>
                 </div>
                 <div class="col-4">
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-4">
                     <button class="menu-button {% if page_name == 'forum' %}selected-button{% endif %}">
-                        <a href="{% url 'forum' %}">Diễn đàn</a>
+                        <a href="{% url 'forums-list' %}">Diễn đàn</a>
                     </button>
                 </div>
                 <div class="col-4">
@@ -138,8 +138,8 @@
                     </button>
                 </a>
             </li>
-            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'couple_friends' %}selected-button{% endif %}">
-                <a href="{% url 'couple_friends' %}" class="d-flex align-items-center">
+            <li id="productsButton" class="menu-button menu-button-width {% if page_name == 'connects-list' %}selected-button{% endif %}">
+                <a href="{% url 'connects-list' %}" class="d-flex align-items-center">
                     <button class="btn d-flex align-items-center">
                         <img src="{% static 'icons/coupleFriendsIcon.svg' %}" alt="home-icon">
                         <span class="ms-3 sidebar-list">Kết nối</span>
@@ -155,7 +155,7 @@
                 </a>
             </li>
             <li id="newsButton" class="menu-button menu-button-width {% if page_name == 'forum' %}selected-button{% endif %}">
-                <a href="{% url 'forum' %}" class="d-flex align-items-center">
+                <a href="{% url 'forums-list' %}" class="d-flex align-items-center">
                     <button class="btn d-flex align-items-center">
                         <img src="{% static 'icons/forumIcon.svg' %}" alt="home-icon">
                         <span class="ms-3 sidebar-list">Diễn đàn</span>
