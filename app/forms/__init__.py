@@ -1,3 +1,4 @@
+from .auth.register import RegisterForm
 from .connect.add_connect import AddConnectForm
 from .connect.create import ConnectCreateForm
 from .document.create import DocumentCreateForm
@@ -8,4 +9,5 @@ __all__ = [
     "DocumentCreateForm",
     "AddConnectForm",
     "ConnectCreateForm",
+    "RegisterForm",
 ]

@@ -51,4 +51,9 @@ urlpatterns = [
         views.ConnectCreateView.as_view(),
         name="connect-create",
     ),
+    path(
+        "register/",
+        views.register,
+        name="register",
+    ),
 ]
