@@ -3,30 +3,81 @@
 {% comment %} TODO: Img in mobile {% endcomment %}
 
 {% block slider %}
+{% if '/home/' in request.path %}
 <div class="container mt-2">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             {% for slider in sliders %}
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"
                 aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
-            {% comment %} <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button> {% endcomment %}
             {% endfor %}
         </div>
         <div class="carousel-inner">
             {% for slider in sliders %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="2500">
-                {% if '/home/' in request.path %}
                 <div class="carousel-caption">
                     <a href="{{ slider.url }}" class="text-decoration-none text-black" target="blank"><button class="btn detail-button-slider">Chi tiết</button></a>
                 </div>
-                {% endif %}
                 <img src="{{ slider.image.url }}" class="d-block w-100 img-slider" alt="slider_1">
             </div>
             {% endfor %}
         </div>
     </div>
 </div>
+{% else %}
+<div class="container mt-2">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2500">
+                {% if page_name == 'home' %}
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                {% endif %}
+                <img src="{% static 'img/slider/slider_1.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                {% if page_name == 'home' %}
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                {% endif %}
+                <img src="{% static 'img/slider/slider_2.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                {% if page_name == 'home' %}
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                {% endif %}
+                <img src="{% static 'img/slider/slider_3.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                {% if page_name == 'home' %}
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                {% endif %}
+                <img src="{% static 'img/slider/slider_4.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+                {% if page_name == 'home' %}
+                <div class="carousel-caption">
+                    <a href="" class="text-decoration-none text-black"><button class="btn detail-button-slider">Chi tiết</button></a>
+                </div>
+                {% endif %}
+                <img src="{% static 'img/slider/slider_5.png' %}" class="d-block w-100 img-slider" alt="slider_1">
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock slider %}
