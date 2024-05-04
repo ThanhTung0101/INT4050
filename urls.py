@@ -24,7 +24,6 @@ from views import (
     HomePage,
     MyRequestPage,
     NewsPage,
-    SignUp,
     WellcomePage,
 )
 
@@ -32,7 +31,6 @@ urlpatterns = [
     path("", include("app.urls")),
     re_path(r"^admin/", admin.site.urls),
     path("", WellcomePage.as_view(), name="wellcome_page"),
-    path("dang-ky/", SignUp.as_view(), name="register"),
     path("home/", HomePage.as_view(), name="home"),
     path("them-thao-luan/", AddForumPage.as_view(), name="add_forum"),
     path("news/", NewsPage.as_view(), name="news"),

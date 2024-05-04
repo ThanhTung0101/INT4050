@@ -1,4 +1,5 @@
 from .auth.login import LoginView
+from .auth.register import register
 from .connect.add_connect import ConnectTicketCreateView
 from .connect.create import ConnectCreateView
 from .connect.detail import ConnectDetailView
@@ -28,4 +29,5 @@ __all__ = [
     "ConnectDetailView",
     "ConnectTicketCreateView",
     "ConnectCreateView",
+    "register",
 ]
