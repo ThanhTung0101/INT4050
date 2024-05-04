@@ -23,5 +23,5 @@ class ConnectCreateView(LoginRequiredMixin, BaseViewMixin, CreateView):
         return context
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        messages.success(self.request, "Tạo mới 1 kết nối thành công!!!")
+        messages.success(self.request, "Tạo mới 1 yêu cầu thành công!!!")
         return super().form_valid(form)

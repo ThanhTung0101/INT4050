@@ -8,7 +8,7 @@ class HomePage(TemplateView):
     template_name = "pages/home.html"
 
     def get(self, request, *args, **kwargs):
-        documents = Document.objects.filter().order_by("created_at")[:6]
+        documents = Document.objects.filter().order_by("created_at")[:4]
 
         posts = Post.objects.order_by("-date_published")
         NUMBER_OUTSTANDING_NEWS = 6

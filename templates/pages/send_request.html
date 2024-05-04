@@ -18,18 +18,35 @@
     </div>
 
     <div class="container detail-post-content">
+        {% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+            <strong>Success!</strong> {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
         <div class="row py-4 post-user-info">
             <div class="col-lg-1"></div>
             <div class="col-lg-11 col-sm-8 col-12">
                 <img src="{{ object.owner.avatar.url }}" class="rounded-circle me-2" height="40px">
-                Thanh Tùng
+                {{ object.owner.user.username }}
             </div>
         </div>
         <div class="row mt-2">
             <div class="col-sm-1"></div>
-            <div class="col-sm-11 col-12 pb-4">
+            <div class="col-sm-11 col-12 pb-1">
                 <div class="mb-3 modal-subject-title">
                     {{ object.name }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12">
+                <div class="mb-3 modal-subject-description">
+                    <button class="btn px-2 py-1 text-white" style="background-color: #777da7;">{{ connect.subject }}</button>
                 </div>
             </div>
         </div>
@@ -45,7 +62,15 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4 modal-subject-description">
                 <img src="{% static 'icons/membersIcon.svg' %}" class="me-2" alt="members-icon">
-                Số người tham gia: {{ object.count_connect }}
+                Số người tham gia tối đa: {{ object.max_people }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4 modal-subject-description">
+                <img src="{% static 'icons/membersIcon.svg' %}" class="me-2" alt="members-icon">
+                Số người đang tham gia: {{ object.count_connect }}
             </div>
         </div>
     </div>
