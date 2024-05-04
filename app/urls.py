@@ -47,7 +47,7 @@ urlpatterns = [
         name="add-connect",
     ),
     path(
-        "connect/create/",
+        "connects/create/",
         views.ConnectCreateView.as_view(),
         name="connect-create",
     ),

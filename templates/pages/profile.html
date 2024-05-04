@@ -197,41 +197,6 @@
                     <div class="col-12 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h5 class="d-flex align-items-center mb-3">Tài liệu của bạn</h5>
-                                <table class="table align-middle mb-0 bg-white">
-                                    <thead class="bg-light">
-                                        <tr>
-                                          <th>STT</th>
-                                          <th>Tên tài liệu</th>
-                                          <th>Hành động</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for liked_document in "abcd" %}
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
-                                            <td>
-                                                <a href="#" download>
-                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                    Tải xuông
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                                {% include 'components/pagination.html' with paginator_data=page_obj %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row gutters-sm">
-                    <div class="col-12 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body">
                                 <h5 class="d-flex align-items-center mb-3">Tài liệu đã thích</h5>
                                 <table class="table align-middle mb-0 bg-white">
                                     <thead class="bg-light">
@@ -247,6 +212,11 @@
                                             <td>1</td>
                                             <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
                                             <td>
+                                                <a href="{% url 'my_request' %}">
+                                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                                    Chi tiết
+                                                    </button>
+                                                </a>
                                                 <a href="#" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
                                                     Tải xuông

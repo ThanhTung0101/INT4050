@@ -19,5 +19,5 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
         return self.request.user.student
 
     def get_success_url(self) -> str:
-        success_url = reverse_lazy("profile-update")
+        success_url = reverse_lazy("profile")
         return success_url

@@ -14,7 +14,7 @@ class DocumentCreateView(LoginRequiredMixin, BaseViewMixin, CreateView):
     form_class = DocumentCreateForm
 
     def get_success_url(self) -> str:
-        return reverse_lazy("document-create")
+        return reverse_lazy("documents-list")
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         messages.success(self.request, "Đóng góp tài liệu thành công!!!")
