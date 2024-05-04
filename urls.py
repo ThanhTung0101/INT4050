@@ -35,9 +35,9 @@ urlpatterns = [
     path("dang-ky/", SignUp.as_view(), name="register"),
     path("home/", HomePage.as_view(), name="home"),
     path("them-thao-luan/", AddForumPage.as_view(), name="add_forum"),
-    path("tin-tuc/", NewsPage.as_view(), name="news"),
+    path("news/", NewsPage.as_view(), name="news"),
     path(
-        "chi-tiet-tin-tuc/<int:post_id>/",
+        "news/detail/<int:post_id>/",
         DetailNewsPage.as_view(),
         name="detail_news",
     ),

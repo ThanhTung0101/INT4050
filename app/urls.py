@@ -23,7 +23,7 @@ urlpatterns = [
         views.ProfileUpdateView.as_view(),
         name="profile-update",
     ),
-    path("forums", views.ForumListView.as_view(), name="forums-list"),
+    path("forums/", views.ForumListView.as_view(), name="forums-list"),
     path(
         "forums/detail/<int:pk>/",
         views.ForumDetailView.as_view(),
