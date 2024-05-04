@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 
-from app.models import Connect
+from app.models import Connect, ExtracurricularActivity, Subject
 
 
 class ConnectListView(ListView):
@@ -10,4 +10,8 @@ class ConnectListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["subjects"] = Subject.objects.all()
+        context[
+            "extracurricularActivities"
+        ] = ExtracurricularActivity.objects.all()
         return context

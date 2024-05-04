@@ -21,12 +21,6 @@
                         <button class="btn btn-outline-primary filter-content">Tạo yêu cầu</button>
                     </a>
                 </div>
-                {% comment %} <div class="col-md-6">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-                        <button class="btn btn-outline-primary" type="submit">Tìm kiếm</button>
-                    </form>
-                </div> {% endcomment %}
             </div>
         </div>
     </div>
@@ -47,9 +41,9 @@
                     <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-content-text">
-                    {% comment %} {% for category in "abcd" %}
-                    <button class="btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if !category.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
-                    {% endfor %} {% endcomment %}
+                    {% for subject in subjects %}
+                    <button class="mt-2 btn px-2 py-1 text-white {% if subject.selected %}selected-filter-items{% endif %}" style="{% if not subject.selected %}background-color: #777da7;{% endif %}">{{ subject.name }}</button>
+                    {% endfor %}
                 </div>
                 <div class="modal-footer modal-content-text d-flex justify-content-end">
                     <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
@@ -62,13 +56,13 @@
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header bg-primary">
-                    <h3 class="modal-header-text text-white mt-2">Yêu cầu</h3>
+                    <h3 class="modal-header-text text-white mt-2">Hoạt động</h3>
                     <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal-content-text">
-                    {% comment %} {% for category in "abcd" %}
-                    <button class="btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if !category.selected %}background-color: #777da7;{% endif %}">Đời sống</button>
-                    {% endfor %} {% endcomment %}
+                    {% for activity in extracurricularActivities %}
+                    <button class="mt-2 btn px-2 py-1 text-white {% if activity.selected %}selected-filter-items{% endif %}" style="{% if not activity.selected %}background-color: #777da7;{% endif %}">{{ activity.name }}</button>
+                    {% endfor %}
                 </div>
                 <div class="modal-footer modal-content-text d-flex justify-content-end">
                     <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
