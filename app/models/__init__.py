@@ -4,6 +4,7 @@ from .base import BaseModel
 from .category import Category
 from .comment import Comment
 from .connect import Connect
+from .connect_ticket import ConnectTicket
 from .document import Document
 from .forum import Forum
 from .hobby import Hobby
@@ -28,4 +29,5 @@ __all__ = [
     "Attachment",
     "Subject",
     "Connect",
+    "ConnectTicket",
 ]

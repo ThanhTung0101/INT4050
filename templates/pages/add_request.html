@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div id="detail-post-body" class="container-fluid py-4">
+<form action="{% url 'connect-create' %}" method="post" id="detail-post-body" class="container-fluid py-4">
     <div class="pb-4">
         <div class="col page-adress d-flex align-items-center justify-content-center">
           <a href="{% url 'home' %}">
@@ -25,15 +25,23 @@
                 Thanh Tùng
             </div>
         </div>
+
+        {% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+            <strong>Success!</strong> {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12">
                 <div class="mb-3">
                     <label for="forumName" class="form-label post-forum-title">Môn học/Hoạt động</label>
-                    <select class="form-select post-forum-text" aria-label="Default select example">
+                    <select class="form-select post-forum-text" name="subject" aria-label="Default select example">
                         <option selected value="">Chọn môn học/hoạt động</option>
-                        {% for item in "abcd" %}
-                        <option value="Nhập môn lập trình">Nhập môn lập trình</option>
+                        {% for subject in subjects %}
+                        <option value="{{ subject.pk }}">{{ subject.name }}</option>
                         {% endfor %}
                       </select>
                   </div>
@@ -48,7 +56,7 @@
                         <label for="peopleNumber" class="col-form-label post-forum-">Giới hạn người tham gia</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text" id="peopleNumber" class="form-control post-forum-text" aria-describedby="passwordHelpInline">
+                        <input type="text" id="peopleNumber" name="max_people" class="form-control post-forum-text" aria-describedby="passwordHelpInline">
                     </div>
                 </div>
             </div>
@@ -58,18 +66,27 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4">
                 <div class="mb-3">
+                    <label for="forumDescription" class="form-label post-forum-title">Tiêu đề</label>
+                    <input class="form-control post-forum-text" name="name" id="forumDescription" rows="5" cols="100%"></input>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 pb-4">
+                <div class="mb-3">
                     <label for="forumDescription" class="form-label post-forum-title">Nội dung yêu cầu</label>
-                    <textarea class="form-control post-forum-text" id="forumDescription" rows="5" cols="100%"></textarea>
+                    <textarea class="form-control post-forum-text" name="description" id="forumDescription" rows="5" cols="100%"></textarea>
                   </div>
             </div>
         </div>
         <div class="row post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
-                <a href="{% url 'couple_friends' %}">
-                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
-                    Đăng yêu cầu
-                </button>
+                <a href="{% url 'connects-list' %}">
+                <input type="submit" class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center" value="Đăng yêu cầu">
+                </input>
                 </a>
             </div>
         </div>

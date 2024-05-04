@@ -1,4 +1,6 @@
 from .auth.login import LoginView
+from .connect.add_connect import ConnectTicketCreateView
+from .connect.create import ConnectCreateView
 from .connect.detail import ConnectDetailView
 from .connect.list import ConnectListView
 from .document.create import DocumentCreateView
@@ -24,4 +26,6 @@ __all__ = [
     "ArticleDetailView",
     "ConnectListView",
     "ConnectDetailView",
+    "ConnectTicketCreateView",
+    "ConnectCreateView",
 ]
