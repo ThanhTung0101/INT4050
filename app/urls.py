@@ -56,4 +56,9 @@ urlpatterns = [
         views.register,
         name="register",
     ),
+    path(
+        "forums/create/",
+        views.ForumCreateView.as_view(),
+        name="forum-create",
+    ),
 ]

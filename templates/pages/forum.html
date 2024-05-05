@@ -16,7 +16,7 @@
                 <a data-bs-toggle="modal" data-bs-target="#tags-filter">
                     <button class="btn btn-outline-primary me-3 filter-content">Tags</button>
                 </a>
-                <a href="{% url 'add_forum' %}">
+                <a href="{% url 'forum-create' %}">
                     <button class="btn btn-outline-primary filter-content">Thêm thảo luận</button>
                 </a>
             </div>
@@ -104,7 +104,6 @@
     </div>
 </div>
 
-{% if forum_paginator.has_other_pages %}
-{% include 'components/pagination.html' with paginator_data=forum_paginator %}
-{% endif %}
+{% include 'components/pagination.html' with paginator_data=page_obj %}
+
 {% endblock content %}

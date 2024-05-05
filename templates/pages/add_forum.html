@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div id="detail-post-body" class="container-fluid py-4">
+<form action="{% url 'forum-create' %}" method="post" id="detail-post-body" class="container-fluid py-4">
     <div class="pb-4">
         <div class="col page-adress d-flex align-items-center justify-content-center">
           <a href="{% url 'home' %}">
@@ -30,7 +30,7 @@
             <div class="col-sm-11 col-12 post-forum-title">
                 <div class="mb-3">
                     <label for="forumName" class="form-label">Tiêu đề</label>
-                    <input type="text" class="form-control" id="forumName">
+                    <input type="text" name="name" class="form-control" id="forumName">
                   </div>
             </div>
         </div>
@@ -90,19 +90,18 @@
             <div class="col-sm-11 col-12 pb-4">
                 <div class="mb-3">
                     <label for="forumDescription" class="form-label post-forum-title">Nội dung thảo luận</label>
-                    <textarea class="form-control post-forum-text" id="forumDescription" rows="4" cols="100%"></textarea>
+                    <textarea class="form-control post-forum-text" id="forumDescription" name="description" rows="4" cols="100%"></textarea>
                   </div>
             </div>
         </div>
         <div class="row post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
-                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
-                    Đăng thảo luận
-                </button>
+                <input type="submit" class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center" value="Đăng thảo luận">
+                </input>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 {% endblock content %}

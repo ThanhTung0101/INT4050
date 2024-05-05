@@ -7,6 +7,7 @@ from .connect.list import ConnectListView
 from .document.create import DocumentCreateView
 from .document.detail import DocumentDetailView
 from .document.list import DocumentListView
+from .forum.create import ForumCreateView
 from .forum.detail import ForumDetailView
 from .forum.list import ForumListView
 from .post.detail import ArticleDetailView
@@ -30,4 +31,5 @@ __all__ = [
     "ConnectTicketCreateView",
     "ConnectCreateView",
     "register",
+    "ForumCreateView",
 ]
