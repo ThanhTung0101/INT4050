@@ -19,7 +19,6 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 
 from views import (
-    AddForumPage,
     DetailNewsPage,
     HomePage,
     MyRequestPage,
@@ -32,7 +31,6 @@ urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     path("", WellcomePage.as_view(), name="wellcome_page"),
     path("home/", HomePage.as_view(), name="home"),
-    path("them-thao-luan/", AddForumPage.as_view(), name="add_forum"),
     path("news/", NewsPage.as_view(), name="news"),
     path(
         "news/detail/<int:post_id>/",
