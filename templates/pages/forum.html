@@ -72,7 +72,7 @@
             <div class="col-md-2 d-none d-md-flex justify-content-center">Ngày đăng</div>
         </div>
         {% for forum in object_list %}
-        <a href="{% url 'forum-detail' pk=forum.pk %}"
+        <a href="{% url 'forum-detail' pk=forum.pk %}">
             <div class="row content-table py-4 px-3 {% if forloop.counter|divisibleby:2 %}bg-post-forum{% endif %}">
                 <div class="col-md-6">
                     <div class="row">
