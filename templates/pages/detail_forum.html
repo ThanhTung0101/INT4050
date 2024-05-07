@@ -82,42 +82,127 @@
         </div>
     </div>
 
-    {% for comment in "abcde" %}
-    <div class="container mt-4 pb-3 detail-post-content">
-        <div class="row py-4 post-user-info">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-9 col-sm-8 col-12">
-                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
-                Thanh Tùng
+    <div id="all-forum-comments">
+        {% for comment in comments %}
+        <div class="container mt-4 pb-3 detail-post-content">
+            <div class="row py-4 post-user-info">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-9 col-sm-8 col-12">
+                    <img src="{{ comment.owner.user.student.avatar.url }}" class="rounded-circle me-2" height="40px">
+                    {{ comment.owner.user }}
+                </div>
+                <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 d-none d-sm-flex align-items-center">
+                    <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                    {{ comment.created_at|date:"d/m/Y" }}
+                </div>
             </div>
-            <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 ms-5 d-flex align-items-center">
-                <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                07/03/2024
+            <div class="row mb-3">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11 col-12 post-forum-text">
+                    {{ comment.text }}
+                </div>
+            </div>
+            <div class="row post-forum-text d-block d-sm-none">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11 col-12 d-flex align-items-center">
+                    <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                    {{ comment.created_at|date:"d/m/Y" }}
+                </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-11 col-12 post-forum-text">
-                Làm cách nào để học tập tốt hơn?
-            </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
     <div class="container mt-4">
         <div class="row py-4 post-user-info">
             <div class="col-12 d-flex justify-content-center align-items-start">
-                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px">
-                <textarea rows="10" cols="100%" placeholder='Viết câu trả lời của bạn...' class="reply-input p-3"></textarea>
+                <img src="{{ request.user.student.avatar.url }}" class="rounded-circle me-2" height="40px">
+                <textarea rows="10" cols="100%" placeholder='Viết câu trả lời của bạn...' id="text-forum-comment" class="reply-input p-3"></textarea>
             </div>
+            <input id="input_image" value="{{request.user.student.avatar.url}}" hidden />
+            <input id="input_username" value="{{request.user.username}}" hidden />
             <div class="col-12 d-flex justify-content-end">
-                <button class="btn me-4 my-3 btn-outline-primary d-flex align-items-center">
+                <button id="button-forum-comment" class="btn me-4 my-3 btn-outline-primary d-flex align-items-center">
                     Trả lời
                 </button>
             </div>
         </div>
     </div>
-
-
 </div>
+
+<script>
+    let text = document.getElementById("text-forum-comment");
+    let buttonComment = document.getElementById("button-forum-comment");
+
+    function createComment(image, username, text, createdAt) {
+        let contentHTML = `    <div class="container mt-4 pb-3 detail-post-content">
+        <div class="row py-4 post-user-info">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-9 col-sm-8 col-12">
+                <img src=${image} class="rounded-circle me-2" height="40px">
+                ${username}
+            </div>
+            <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 d-none d-sm-flex align-items-center">
+                <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                ${createdAt}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 post-forum-text">
+                ${text}
+            </div>
+        </div>
+        <div class="row post-forum-text d-block d-sm-none">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-11 col-12 d-flex align-items-center">
+                <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
+                ${createdAt}
+            </div>
+        </div>
+    </div>`
+    return contentHTML
+    }
+
+    buttonComment.addEventListener("click", (e) => {
+        if (text.value) {
+            sendHTTP(text.value)
+        }
+    })
+
+    function sendHTTP(text) {
+        let currentForum = JSON.parse("{{forum.pk|escapejs}}");
+        let username = document.getElementById("input_username").value
+        let image = document.getElementById("input_image").value
+
+        let data = new FormData();
+        data.append('content_type', 'Forum');
+        data.append('object_id', currentForum);
+        data.append('text', text)
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/comment/', true);
+        xhr.onload = function () {
+            if (xhr.status == 201) {
+                let currentDate = new Date(Date.now());
+                let day = currentDate.getDate();
+                let month = currentDate.getMonth() + 1;
+                let year = currentDate.getFullYear();
+                if (day < 10) {
+                    day = '0' + day;
+                }
+                if (month < 10) {
+                    month = '0' + month;
+                }
+                let formattedDate = day + '/' + month + '/' + year;
+                let newCommentHTML = createComment(image, username, text, formattedDate);
+                let newCommentElement = document.createElement('div');
+                newCommentElement.innerHTML = newCommentHTML;
+                document.getElementById("all-forum-comments").appendChild(newCommentElement);
+            }
+
+        };
+        xhr.send(data);
+    }
+</script>
 {% endblock content %}
