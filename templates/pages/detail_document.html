@@ -101,7 +101,7 @@
             </div>
             <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 d-none d-sm-flex align-items-center">
                 <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                {{ comment.created_at }}
+                {{ comment.created_at|date:"d/m/Y" }}
             </div>
         </div>
         <div class="row mb-3">
@@ -114,7 +114,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 d-flex align-items-center">
                 <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                {{ comment.created_at }}
+                {{ comment.created_at|date:"d/m/Y" }}
             </div>
         </div>
     </div>
@@ -180,23 +180,32 @@
     })
 
     function sendHTTP(text) {
-        var currentDocument = JSON.parse("{{document.pk|escapejs}}");
-        var username = document.getElementById("input_username").value
-        var image = document.getElementById("input_image").value
+        let currentDocument = JSON.parse("{{document.pk|escapejs}}");
+        let username = document.getElementById("input_username").value
+        let image = document.getElementById("input_image").value
 
-        console.log(document)
-        var data = new FormData();
+        let data = new FormData();
         data.append('content_type', 'Document');
         data.append('object_id', currentDocument);
         data.append('text', text)
 
-        var xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
         xhr.open('POST', '/api/comment/', true);
         xhr.onload = function () {
-            console.log(this.responseText);
             if (xhr.status == 201) {
-                var newCommentHTML = createComment(image, username, text, Date.now());
-                var newCommentElement = document.createElement('div');
+                let currentDate = new Date(Date.now());
+                let day = currentDate.getDate();
+                let month = currentDate.getMonth() + 1;
+                let year = currentDate.getFullYear();
+                if (day < 10) {
+                    day = '0' + day;
+                }
+                if (month < 10) {
+                    month = '0' + month;
+                }
+                let formattedDate = day + '/' + month + '/' + year;
+                let newCommentHTML = createComment(image, username, text, formattedDate);
+                let newCommentElement = document.createElement('div');
                 newCommentElement.innerHTML = newCommentHTML;
                 document.getElementById("all-document-comments").appendChild(newCommentElement);
             }
