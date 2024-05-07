@@ -1,6 +1,7 @@
+from django.contrib.contenttypes.models import ContentType
 from django.views.generic import ListView
 
-from app.models import Document, Subject
+from app.models import Comment, Document, Subject
 
 
 class DocumentListView(ListView):
@@ -19,4 +20,10 @@ class DocumentListView(ListView):
         if subjects:
             queryset.filter(subjects__in=[subjects])
 
+        content_type = ContentType.objects.get_for_model(Document)
+        for document in queryset:
+            document.comment_count = Comment.objects.filter(
+                content_type=content_type,
+                object_id=document.pk,
+            ).count()
         return queryset
