@@ -26,7 +26,7 @@
             </div>
             <div class="col-lg-2 col-sm-4 col-12 ms-sm-0 ms-5 d-flex align-items-center">
                 <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                {{ object.created_at|date}}
+                {{ object.created_at|date:"d/m/Y" }}
             </div>
         </div>
         <div class="row">
@@ -86,7 +86,7 @@
     </div>
 
     {% for comment in "abcde" %}
-    <div class="container mt-4 detail-post-content">
+    <div class="container mt-4 pb-3 detail-post-content">
         <div class="row py-4 post-user-info">
             <div class="col-lg-1"></div>
             <div class="col-lg-9 col-sm-8 col-12">
@@ -102,19 +102,6 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 post-forum-text">
                 Làm cách nào để học tập tốt hơn?
-            </div>
-        </div>
-        <div class="row mt-2 post-forum-text">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-6 col-12 pb-4 d-flex">
-                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
-                    <img src="{% static 'icons/likeIcon.svg' %}" class="me-1" alt="like-Icon">
-                    1000
-                </button>
-                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
-                    <img src="{% static 'icons/dislikeIcon.svg' %}" class="me-1" alt="dislike-Icon">
-                    400
-                </button>
             </div>
         </div>
     </div>
