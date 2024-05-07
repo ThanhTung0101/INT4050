@@ -68,8 +68,8 @@
                     {% comment %} TODO: add category and color {% endcomment %}
                     <button class="btn px-2 py-1 text-white" style="background-color: #777da7;">Đời sống</button>
                 </div>
-                <div class="col-md-1 d-none d-md-flex likes-number justify-content-center align-items-center">30</div>
-                <div class="col-md-1 d-none d-md-flex replies-number justify-content-center align-items-center"><strong>50</strong></div>
+                <div class="col-md-1 d-none d-md-flex likes-number justify-content-center align-items-center">{{ forum.like_count }}</div>
+                <div class="col-md-1 d-none d-md-flex replies-number justify-content-center align-items-center"><strong>{{ forum.comment_count }}</strong></div>
                 <div class="col-md-2 d-none d-md-flex date-info justify-content-center align-items-center">{{ forum.created_at|date:"d/m/Y" }}</div>
             </div>
         </a>

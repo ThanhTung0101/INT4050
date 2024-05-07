@@ -13,10 +13,12 @@
             <img src="{% static 'icons/clockIcon.svg' %}" class="me-2" alt="Clock-Icon">
             {{ document.created_at|date:"d/m/Y" }}
         </div>
+        {% if not is_home_page %}
         <div class="col-md-4 d-none d-md-flex justify-content-start align-items-center">
             <img src="{% static 'icons/commentsIcon.svg' %}" class="me-2" alt="comments-Icon">
-            {{ document.comments.count }} bình luận
+            {{ document.comment_count }} bình luận
         </div>
+        {% endif %}
     </div>
     <div class="row mt-3">
         <div class="document-description" {% if is_home_page %}style="height: 38px;"{% endif %}>{{ document.description }}</div>
