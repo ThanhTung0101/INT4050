@@ -54,12 +54,14 @@
                 {{ object.description }}
             </div>
         </div>
+        {% if object.file %}
         <div class="row mt-2 post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4">
-                <a href="" class="text-decoration-none document-download text-primary" download><strong>TẢI TÀI LIỆU XUỐNG</strong></a>
+                <a href="{{ object.file.url }}" class="text-decoration-none document-download text-primary" download><strong>TẢI TÀI LIỆU XUỐNG</strong></a>
             </div>
         </div>
+        {% endif %}
         <div class="row mt-2 post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
