@@ -142,7 +142,7 @@
                                     <tbody>
                                     {% for connect in connects %}
                                       <tr>
-                                        <td>1</td>
+                                        <td>{{ forloop.counter }}</td>
                                         <td>{{ connect.name }}</td>
                                         <td>{{ connect.max_people }}</td>
                                         <td>{{ connect|get_accepted_people }}</td>
@@ -152,7 +152,7 @@
                                                 Chi tiết
                                                 </button>
                                             </a>
-                                            <a href="#" download>
+                                            <a href="#">
                                                 <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
                                                 Close
                                                 </button>
@@ -183,12 +183,12 @@
                                     <tbody>
                                         {% for document in documents %}
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ forloop.counter }}</td>
                                             <td>{{ document.name }}</td>
                                             <td>
-                                                <a href="#" download>
+                                                <a href="{{ document.file.url }}" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                    Tải xuông
+                                                    Tải xuống
                                                     </button>
                                                 </a>
                                             </td>
@@ -218,10 +218,10 @@
                                     <tbody>
                                         {% for like in likes %}
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ forloop.counter }}</td>
                                             <td>{{ like.object.name }}</td>
                                             <td>
-                                                <a href="#" download>
+                                                <a href="{{ like.object.file.url }}" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
                                                     Tải xuông
                                                     </button>
