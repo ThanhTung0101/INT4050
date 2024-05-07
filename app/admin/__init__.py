@@ -1,5 +1,6 @@
 from .category import CategoryAdmin
 from .document import DocumentAdmin
+from .email_register import EmailRegisterAdmin
 from .extracurricular_activity import ExtracurricularActivityAdmin
 from .slider import SliderAdmin
 from .student import StudentAdmin
@@ -14,4 +15,5 @@ __all__ = [
     "ExtracurricularActivityAdmin",
     "TagAdmin",
     "SliderAdmin",
+    "EmailRegisterAdmin",
 ]

@@ -37,8 +37,10 @@
                         </div>
                     </div>
                 </div>
+                {% if object.student.github_link or object.student.fb_link or object.student.instagram_link %}
                 <div class="card mt-3">
                     <ul class="my-social-box mb-1">
+                        {% if object.student.github_link %}
                         <li class="my-social mt-1">
                             <a href="{{ object.student.github_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
@@ -48,6 +50,8 @@
                             </a>
                         </li>
                         <hr class="my-1">
+                        {% endif %}
+                        {% if object.student.fb_link %}
                         <li class="my-social">
                             <a href="{{ object.student.fb_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
@@ -57,6 +61,8 @@
                             </a>
                         </li>
                         <hr class="my-1">
+                        {% endif %}
+                        {% if object.student.instagram_link %}
                         <li class="my-social">
                             <a href="{{ object.student.instagram_link }}" class="d-flex align-items-center">
                                 <button class="btn d-flex align-items-center">
@@ -65,8 +71,10 @@
                                 </button>
                             </a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
+                {% endif %}
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">
