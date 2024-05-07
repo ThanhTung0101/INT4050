@@ -1,5 +1,5 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
+{% load static app_tags %}
 
 {% block content %}
 <div class="container">
@@ -140,11 +140,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {% for connect in connects %}
                                       <tr>
                                         <td>1</td>
-                                        <td>Nhập môn lập trình</td>
-                                        <td>5</td>
-                                        <td>1</td>
+                                        <td>{{ connect.name }}</td>
+                                        <td>{{ connect.max_people }}</td>
+                                        <td>{{ connect|get_accepted_people }}</td>
                                         <td>
                                             <a href="{% url 'my_request' %}">
                                                 <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
@@ -158,42 +159,7 @@
                                             </a>
                                         </td>
                                       </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>Nhập môn lập trình</td>
-                                        <td>5</td>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="{% url 'my_request' %}">
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Chi tiết
-                                                </button>
-                                            </a>
-                                            <a href="#" download>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Close
-                                                </button>
-                                            </a>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>3</td>
-                                        <td>Nhập môn lập trình</td>
-                                        <td>5</td>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="{% url 'my_request' %}">
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Chi tiết
-                                                </button>
-                                            </a>
-                                            <a href="#" download>
-                                                <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
-                                                Close
-                                                </button>
-                                            </a>
-                                        </td>
-                                      </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -215,10 +181,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for liked_document in "abcd" %}
+                                        {% for document in documents %}
                                         <tr>
                                             <td>1</td>
-                                            <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
+                                            <td>{{ document.name }}</td>
                                             <td>
                                                 <a href="#" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
@@ -250,10 +216,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for liked_document in "abcd" %}
+                                        {% for like in likes %}
                                         <tr>
                                             <td>1</td>
-                                            <td>Đề thi Kỹ Thuật Hiển Thị Máy Tính đề số 4 kỳ 2 năm học 2022-2023 – UET</td>
+                                            <td>{{ like.object.name }}</td>
                                             <td>
                                                 <a href="#" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
