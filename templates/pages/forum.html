@@ -13,9 +13,6 @@
                 <a data-bs-toggle="modal" data-bs-target="#category-filter">
                     <button class="btn btn-outline-primary me-3 filter-content">Danh mục</button>
                 </a>
-                <a data-bs-toggle="modal" data-bs-target="#tags-filter">
-                    <button class="btn btn-outline-primary me-3 filter-content">Tags</button>
-                </a>
                 <a href="{% url 'forum-create' %}">
                     <button class="btn btn-outline-primary filter-content">Thêm thảo luận</button>
                 </a>
@@ -34,25 +31,6 @@
             <div class="modal-body modal-content-text">
                 {% for category in categories %}
                 <button class="mt-2 btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if not category.selected %}background-color: #777da7;{% endif %}">{{ category.name }}</button>
-                {% endfor %}
-            </div>
-            <div class="modal-footer modal-content-text d-flex justify-content-end">
-                <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal modal-fluid modal-vertical fade" id="tags-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h3 class="modal-header-text text-white mt-2">Tags</h3>
-                <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body modal-content-text">
-                {% for tag in tags %}
-                <button class="mt-2 btn px-2 py-1 text-white {% if tag.selected %}selected-filter-items{% endif %}" style="{% if not tag.selected %}background-color: #777da7;{% endif %}">{{ tag.name }}</button>
                 {% endfor %}
             </div>
             <div class="modal-footer modal-content-text d-flex justify-content-end">
@@ -82,11 +60,6 @@
                         <div class="col-10 post-sub-title d-flex justify-content-center align-items-center">
                             <div class="row">
                                 <div>{{ forum.description }}</div>
-                                <div class="tags-box d-flex mt-2">
-                                    {% for post_tags in "abc" %}
-                                    <button class="btn px-2 py-1 tag-button me-2">Tag</button>
-                                    {% endfor %}
-                                </div>
                             </div>
                         </div>
                     </div>

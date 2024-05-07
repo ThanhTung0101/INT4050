@@ -49,6 +49,20 @@
             </div>
             <div class="row mt-2">
                 <div class="col-sm-1"></div>
+                <div class="col-sm-11 col-12">
+                    <div class="mb-3">
+                        <label for="forumName" class="form-label post-forum-title">Môn học</label>
+                        <select class="form-select post-forum-text" name="subject" aria-label="Default select example">
+                            <option selected value="">Chọn môn học</option>
+                            {% for subject in subjects %}
+                            <option value="{{ subject.pk }}">{{ subject.name }}</option>
+                            {% endfor %}
+                          </select>
+                      </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-1"></div>
                 <div class="col-sm-11 col-12 pb-4">
                     <div class="mb-3">
                         <label for="documentDescription" class="form-label post-forum-title">Mô tả tài liệu</label>

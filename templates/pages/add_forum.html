@@ -36,53 +36,16 @@
         </div>
         <div class="row mt-2">
             <div class="col-sm-1"></div>
-            <div class="col-sm-11 col-12 pb-4">
+            <div class="col-sm-11 col-12">
                 <div class="mb-3">
-                    <a data-bs-toggle="modal" data-bs-target="#add-forum-category">
-                        <button class="btn btn-outline-primary me-3 filter-content">Thêm danh mục</button>
-                    </a>
-                    <a data-bs-toggle="modal" data-bs-target="#add-forum-tags">
-                        <button class="btn btn-outline-primary me-3 filter-content">Thêm tags</button>
-                    </a>
-
-                    <div class="modal modal-fluid modal-vertical fade" id="add-forum-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog ">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary">
-                                    <h3 class="modal-header-text text-white mt-2">Chọn danh mục</h3>
-                                    <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body modal-content-text">
-                                    {% for category in categories %}
-                                    <button class="mt-2 btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if not category.selected %}background-color: #777da7;{% endif %}">{{ category.name }}</button>
-                                    {% endfor %}
-                                </div>
-                                <div class="modal-footer modal-content-text d-flex justify-content-end">
-                                    <button class="btn btn-outline-primary me-3"><strong>Thêm</strong></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal modal-fluid modal-vertical fade" id="add-forum-tags" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog ">
-                            <div class="modal-content">
-                                <div class="modal-header bg-primary">
-                                    <h3 class="modal-header-text text-white mt-2">Thêm tags</h3>
-                                    <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body modal-content-text">
-                                    {% for tag in tags %}
-                                    <button class="mt-2 btn px-2 py-1 text-white {% if tag.selected %}selected-filter-items{% endif %}" style="{% if not tag.selected %}background-color: #777da7;{% endif %}">{{ tag.name }}</button>
-                                    {% endfor %}
-                                </div>
-                                <div class="modal-footer modal-content-text d-flex justify-content-end">
-                                    <button class="btn btn-outline-primary me-3"><strong>Thêm</strong></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <label for="forumName" class="form-label post-forum-title">Danh mục</label>
+                    <select class="form-select post-forum-text" name="subject" aria-label="Default select example">
+                        <option selected value="">Chọn chủ đề</option>
+                        {% for category in categories %}
+                        <option value="{{ category.pk }}">{{ category.name }}</option>
+                        {% endfor %}
+                      </select>
+                  </div>
             </div>
         </div>
         <div class="row mt-2">
