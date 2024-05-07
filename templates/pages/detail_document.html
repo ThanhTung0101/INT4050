@@ -63,9 +63,9 @@
         <div class="row mt-2 post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-6 col-12 pb-4 d-flex">
-                <button class="btn px-2 py-1 me-2 btn-outline-primary d-flex align-items-center">
+                <button id="like-document-button" class="btn px-2 py-1 me-2 {% if not is_like %} btn-outline-primary {% else %} btn-primary {% endif %} d-flex align-items-center ">
                     <img src="{% static 'icons/likeIcon.svg' %}" class="me-1" alt="like-Icon">
-                    1000
+                    <a id="like-document-count">{{ like_count}}</a>
                 </button>
                 <div class="dropdown">
                     <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -213,6 +213,38 @@
         };
         xhr.send(data);
     }
+
+    likeDocumentButton = document.getElementById("like-document-button")
+    likeDocumentCount = document.getElementById("like-document-count")
+
+    likeDocumentButton.addEventListener("click", (e) => {
+        let currentDocument = JSON.parse("{{document.pk|escapejs}}");
+
+        let data = new FormData();
+        data.append('content_type', 'Document');
+        data.append('object_id', currentDocument);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/like/', true);
+        xhr.onload = function () {
+            if (xhr.status == 201) {
+                res = JSON.parse(xhr.response)
+                if (res.type == "like") {
+                    count = likeDocumentCount.text
+                    likeDocumentButton.classList.remove("btn-outline-primary")
+                    likeDocumentButton.classList.add("btn-primary")
+                    likeDocumentCount.innerHTML = count * 1 + 1
+                } else {
+                    count = likeDocumentCount.text
+
+                    likeDocumentButton.classList.remove("btn-primary")
+                    likeDocumentButton.classList.add("btn-outline-primary")
+                    likeDocumentCount.innerHTML = count * 1 - 1
+                }
+            }
+        };
+        xhr.send(data);
+    })
 </script>
 
 {% endblock content %}
