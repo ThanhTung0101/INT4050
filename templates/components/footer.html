@@ -17,14 +17,19 @@
         {% comment %} TODO: fix admin send to user {% endcomment %}
         <form action="mailto:" method="get">
             <div class="col d-flex justify-content-center">
-                <input id="emailInput" type="email"
+                <form action="/register_email/" method="post">
+                    {% csrf_token %}
+                    <input id="emailInput" type="email"
                         placeholder="Nhập địa chỉ email...."
                         class="input-info-footer border-0 ps-3">
-                <div class="d-flex justify-content-end">
-                    <div class="positon-arrow-cross-icon">
-                        <img src="/static/icons/arrowCrossYellow.svg" class="arrow-cross-icon d-block w-100" alt="arrow-cross-icon">
+                    <div class="d-flex justify-content-end">
+                        <div class="positon-arrow-cross-icon">
+                            <button type="submit" class="m-0 p-0 btn border-0 bg-transparent">
+                                <img src="/static/icons/arrowCrossYellow.svg" class="arrow-cross-icon d-block w-100" alt="arrow-cross-icon">
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </form>
     </div>
