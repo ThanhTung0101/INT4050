@@ -28,6 +28,7 @@ from views import (
 
 urlpatterns = [
     path("", include("app.urls")),
+    path("api/", include("api.urls")),
     re_path(r"^admin/", admin.site.urls),
     path("", WellcomePage.as_view(), name="wellcome_page"),
     path("home/", HomePage.as_view(), name="home"),
