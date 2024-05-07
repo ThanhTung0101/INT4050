@@ -19,5 +19,5 @@ class DocumentDetailView(LoginRequiredMixin, BaseViewMixin, DetailView):
         context["comments"] = Comment.objects.filter(
             content_type=content_type,
             object_id=document.pk,
-        )
+        ).order_by("-created_at")
         return context
