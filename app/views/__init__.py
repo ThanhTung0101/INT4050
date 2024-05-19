@@ -14,6 +14,7 @@ from .post.detail import ArticleDetailView
 from .post.list import ArticleListView
 from .profile.detail import ProfileDetailView
 from .profile.update import ProfileUpdateView
+from .profile.your_connect_detail import YourConnectDetailView
 
 __all__ = [
     "DocumentListView",
@@ -32,4 +33,5 @@ __all__ = [
     "ConnectCreateView",
     "register",
     "ForumCreateView",
+    "YourConnectDetailView",
 ]
