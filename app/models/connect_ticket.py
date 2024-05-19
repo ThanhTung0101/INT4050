@@ -16,3 +16,6 @@ class ConnectTicket(BaseModel):
         on_delete=models.CASCADE,
         related_name="student_connect_tickets",
     )
+
+    def __str__(self):
+        return f"{self.message}"

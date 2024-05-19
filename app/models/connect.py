@@ -23,3 +23,6 @@ class Connect(BaseModel):
         from app.models import ConnectTicket
 
         return ConnectTicket.objects.filter(connect=self).count()
+
+    def __str__(self):
+        return f"{self.name}"
