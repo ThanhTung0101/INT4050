@@ -22,15 +22,15 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
         student = self.request.user.student
         content_type = ContentType.objects.get_for_model(Document).pk
 
-        context["connects"] = Connect.objects.filter(owner=student,).order_by(
-            "-created_at"
-        )[:3]
+        context["connects"] = Connect.objects.filter(
+            owner=student,
+        ).order_by("-created_at")
         context["documents"] = Document.objects.filter(
             owner=student,
-        ).order_by("-created_at")[:3]
+        ).order_by("-created_at")
         likes = Like.objects.filter(
             owner=student,
             content_type=content_type,
-        ).order_by("-created_at")[:3]
+        ).order_by("-created_at")
         context["likes"] = likes
         return context

@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from rest_framework.authentication import (
     BasicAuthentication,
     SessionAuthentication,
@@ -13,7 +13,9 @@ class CsrfExemptSessionAuthentication(SessionAuthentication):
         return  # To not perform the csrf check previously happening
 
 
-class ConnectTicketViewSet(viewsets.ModelViewSet):
+class ConnectTicketViewSet(
+    mixins.UpdateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet
+):
     serializer_class = ConnectTicketSerializer
     queryset = ConnectTicket.objects.all()
 
@@ -24,3 +26,6 @@ class ConnectTicketViewSet(viewsets.ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
+
+    def destroy(self, request, *args, **kwargs):
+        return super().destroy(request, *args, **kwargs)

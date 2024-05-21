@@ -18,13 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 
-from views import (
-    DetailNewsPage,
-    HomePage,
-    MyRequestPage,
-    NewsPage,
-    WellcomePage,
-)
+from views import DetailNewsPage, HomePage, NewsPage, WellcomePage
 
 urlpatterns = [
     path("", include("app.urls")),
@@ -38,7 +32,6 @@ urlpatterns = [
         DetailNewsPage.as_view(),
         name="detail_news",
     ),
-    path("yeu-cau-cua-toi/", MyRequestPage.as_view(), name="my_request"),
     path("cms/", include("cms.urls")),
     path("post/", include("djangocms_blog.urls")),
     path("taggit_autosuggest/", include("taggit_autosuggest.urls")),
