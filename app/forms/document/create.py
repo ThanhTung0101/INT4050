@@ -11,7 +11,7 @@ class DocumentCreateForm(BaseFormMixin, forms.ModelForm):
         model = Document
         fields = [
             "name",
-            "subjects",
+            "subject",
             "description",
             "file",
         ]
