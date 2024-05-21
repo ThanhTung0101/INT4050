@@ -17,6 +17,7 @@ class ForumListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        category = self.request.GET.get("category")
         content_type = ContentType.objects.get_for_model(Forum)
         for forum in queryset:
             forum.like_count = Like.objects.filter(
@@ -27,4 +28,6 @@ class ForumListView(ListView):
                 content_type=content_type,
                 object_id=forum.pk,
             ).count()
+        if category:
+            queryset = queryset.filter(category=category)
         return queryset
