@@ -30,7 +30,9 @@
             </div>
             <div class="modal-body modal-content-text">
                 {% for category in categories %}
+                <a href="?category={{ category.pk }}">
                 <button class="mt-2 btn px-2 py-1 text-white {% if category.selected %}selected-filter-items{% endif %}" style="{% if not category.selected %}background-color: #777da7;{% endif %}">{{ category.name }}</button>
+                </a>
                 {% endfor %}
             </div>
             <div class="modal-footer modal-content-text d-flex justify-content-end">
