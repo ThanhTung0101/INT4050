@@ -39,13 +39,13 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4 d-flex align-items-center">
                 <img src="{% static 'icons/clockIcon.svg' %}" class="me-3" alt="Clock-Icon">
-                07/03/2024
+                {{ object.created_at|date:"d/m/Y" }}
             </div>
         </div>
         <div class="row mt-2 post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4 d-flex category-and-tags-box">
-                <button class="btn px-2 py-1 tag-button me-2">Nhập môn lập trình</button>
+                {% if object.subjects %}<button class="btn px-2 py-1 tag-button me-2">{{ object.subjects }}</button>{% endif %}
             </div>
         </div>
         <div class="row mt-2 post-forum-text">

@@ -52,7 +52,7 @@
                 <div class="col-sm-11 col-12">
                     <div class="mb-3">
                         <label for="forumName" class="form-label post-forum-title">Môn học</label>
-                        <select class="form-select post-forum-text" name="subject" aria-label="Default select example">
+                        <select class="form-select post-forum-text" name="subjects" aria-label="Default select example">
                             <option selected value="">Chọn môn học</option>
                             {% for subject in subjects %}
                             <option value="{{ subject.pk }}">{{ subject.name }}</option>
