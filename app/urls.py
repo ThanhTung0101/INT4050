@@ -61,4 +61,9 @@ urlpatterns = [
         views.ForumCreateView.as_view(),
         name="forum-create",
     ),
+    path(
+        "your_connect_detail/<int:pk>/",
+        views.YourConnectDetailView.as_view(),
+        name="your-connect-detail",
+    ),
 ]
