@@ -38,7 +38,7 @@
         <div class="row mt-2 post-forum-text">
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12 pb-4 d-flex category-and-tags-box">
-                <button class="btn px-2 py-1 me-2 text-white bg-primary">Đời sống</button>
+                {% if object.category %}<button class="btn px-2 py-1 me-2 text-white bg-primary">{{ object.category }}</button>{% endif %}
             </div>
         </div>
         <div class="row mt-2 post-forum-text">
