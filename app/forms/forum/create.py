@@ -12,6 +12,7 @@ class ForumCreateForm(BaseFormMixin, forms.ModelForm):
         fields = [
             "name",
             "description",
+            "category",
         ]
 
     def save(self, commit: bool = ...) -> Any:

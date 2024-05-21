@@ -11,6 +11,13 @@ class Forum(BaseModel):
         on_delete=models.CASCADE,
         related_name="forums",
     )
+    category = models.ForeignKey(
+        "Category",
+        on_delete=models.CASCADE,
+        related_name="category_forums",
+        blank=True,
+        null=True,
+    )
 
     def __str__(self) -> str:
         return self.name

@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-md-2 d-none d-md-flex justify-content-center align-items-center">
                     {% comment %} TODO: add category and color {% endcomment %}
-                    <button class="btn px-2 py-1 text-white" style="background-color: #777da7;">Đời sống</button>
+                    {% if forum.category %} <button class="btn px-2 py-1 text-white" style="background-color: #777da7;">{{ forum.category }} </button>{% endif %}
                 </div>
                 <div class="col-md-1 d-none d-md-flex likes-number justify-content-center align-items-center">{{ forum.like_count }}</div>
                 <div class="col-md-1 d-none d-md-flex replies-number justify-content-center align-items-center"><strong>{{ forum.comment_count }}</strong></div>
