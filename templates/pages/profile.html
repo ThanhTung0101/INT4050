@@ -148,7 +148,7 @@
                                         <td>{{ connect.max_people }}</td>
                                         <td>{{ connect|get_accepted_people }}</td>
                                         <td>
-                                            <a href="{% url 'my_request' %}">
+                                            <a href="{% url 'your-connect-detail' pk=connect.pk %}">
                                                 <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
                                                 Chi tiết
                                                 </button>
@@ -189,7 +189,7 @@
                                             <td>{{ forloop.counter }}</td>
                                             <td>{{ document.name }}</td>
                                             <td>
-                                                <a href="{{ document.file.url }}" download>
+                                                <a href="{% if document.file %} {{ document.file.url  }} {% else %} {% endif %}" download>
                                                     <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
                                                     Tải xuống
                                                     </button>

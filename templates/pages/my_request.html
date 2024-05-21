@@ -59,12 +59,12 @@
                     <tbody>
                         {% for accepted_ticket in accepted_tickets %}
                         <tr>
-                            <td>1</td>
-                            <td>User1</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>20020071</td>
-                            <td>K65CD</td>
-                            <td><a href="https://www.facebook.com/UETTung">Facebook</a></td>
+                            <td>{{ accepted_ticket.pk }}</td>
+                            <td>{{ accepted_ticket.student.user.username }}</td>
+                            <td>{{ accepted_ticket.student }}</td>
+                            <td>{{ accepted_ticket.student.code }}</td>
+                            <td>{{ accepted_ticket.student.classroom }}</td>
+                            <td><a style="color:peru;" href="#">email: {{ accepted_ticket.student.user.email }}</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -77,6 +77,9 @@
         <div class="row py-4 post-user-info">
             <div class="col pb-4">
                 <h5 class="d-flex align-items-center mb-3">Danh sách gửi yêu cầu</h5>
+                {% if is_full %}
+                <tr>Yêu cầu đã đủ số người tham gia</tr>
+                {% else %}
                 <table class="table align-middle mb-0 bg-white">
                     <thead class="bg-light">
                         <tr>
@@ -98,12 +101,12 @@
                             <td>{{ request_ticket.message }}</td>
                             <td>
                                 <a href="#">
-                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none btn-accept" onclick="accepteConnect('{{ request_ticket.pk }}')" data-mdb-ripple-color="dark">
                                     Đồng ý
                                     </button>
                                 </a>
                                 <a href="#">
-                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none" data-mdb-ripple-color="dark">
+                                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold text-decoration-none btn-delete" onclick="closeConnect('{{ request_ticket.pk }}')" data-mdb-ripple-color="dark">
                                     Xóa yêu cầu
                                     </button>
                                 </a>
@@ -112,8 +115,39 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    console.log('ok')
+    function accepteConnect(idConnect) {
+        let data = new FormData();
+        data.append('accepted', true)
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('PUT', '/api/connect/' + idConnect + '/' , true);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                alert('Thêm người tham gia thành công!!!');
+                location.reload()
+            }
+        };
+        xhr.send(data);
+    }
+
+    function closeConnect(idConnect) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('DELETE', '/api/connect/' + idConnect + '/' , true);
+        xhr.onload = function () {
+            if (xhr.status == 204) {
+                alert('Xoá yêu cầu thành công!!!');
+                location.reload()
+            }
+        };
+        xhr.send();
+    }
+</script>
 {% endblock content %}
