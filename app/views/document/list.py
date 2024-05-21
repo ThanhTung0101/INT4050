@@ -16,9 +16,7 @@ class DocumentListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        subjects = self.request.GET.get("subjects")
-        if subjects:
-            queryset.filter(subjects__in=[subjects])
+        subject = self.request.GET.get("subject")
 
         content_type = ContentType.objects.get_for_model(Document)
         for document in queryset:
@@ -26,4 +24,6 @@ class DocumentListView(ListView):
                 content_type=content_type,
                 object_id=document.pk,
             ).count()
+        if subject:
+            queryset = queryset.filter(subject=subject)
         return queryset

@@ -10,10 +10,12 @@ class Document(BaseModel):
     owner = models.ForeignKey(
         "Student", on_delete=models.CASCADE, related_name="documents"
     )
-    subjects = models.ManyToManyField(
+    subject = models.ForeignKey(
         "Subject",
         related_name="subject_documents",
+        on_delete=models.CASCADE,
         blank=True,
+        null=True,
     )
 
     def __str__(self):
