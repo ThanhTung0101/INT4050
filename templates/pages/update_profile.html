@@ -75,7 +75,7 @@
                                 <label class="small mb-1" for="studentAddress">Địa chỉ</label>
                                 <input class="form-control" id="studentAddress" type="text" name="address" placeholder="Nhập địa chỉ" value="{{ object.address }}">
                             </div>
-                            <div class="mb-3">
+                            {% comment %} <div class="mb-3">
                                 <label class="small mb-1" for="studentFacebook">Link Facebook</label>
                                 <input class="form-control" id="studentFacebook" placeholder="Nhập link facebook" value="{{ object.fb_link }}">
                             </div>
@@ -86,7 +86,7 @@
                             <div class="mb-3">
                                 <label class="small mb-1" for="studentInstagram">Link Instagram</label>
                                 <input class="form-control" id="studentInstagram" placeholder="Nhập link instagram" value="{{ object.instagram_link }}">
-                            </div>
+                            </div> {% endcomment %}
                             <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
                     </div>
                 </div>
