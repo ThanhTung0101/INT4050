@@ -29,8 +29,8 @@
         <div class="row py-4 post-user-info">
             <div class="col-lg-1"></div>
             <div class="col-lg-11 col-sm-8 col-12">
-                <img src="{% static 'img/avt_img.jpg' %}" class="rounded-circle me-2" height="40px" width="40px" style="object-fit: cover;">
-                Thanh Tùng
+                <img src="{{ request.user.student.avatar.url }}" class="rounded-circle me-2" height="40px" width="40px" style="object-fit: cover;">
+                {{ request.user.username }}
             </div>
         </div>
 
@@ -38,9 +38,9 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-11 col-12">
                 <div class="mb-3">
-                    <label for="forumName" class="form-label post-forum-title">Môn học/Hoạt động</label>
+                    <label for="forumName" class="form-label post-forum-title">Môn học</label>
                     <select class="form-select post-forum-text" name="subject" aria-label="Default select example">
-                        <option selected value="">Chọn môn học/hoạt động</option>
+                        <option selected value="">Chọn môn học</option>
                         {% for subject in subjects %}
                         <option value="{{ subject.pk }}">{{ subject.name }}</option>
                         {% endfor %}

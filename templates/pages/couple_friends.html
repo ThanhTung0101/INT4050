@@ -14,9 +14,6 @@
                     <a data-bs-toggle="modal" data-bs-target="#subject-filter">
                         <button class="btn btn-outline-primary me-3 filter-content">Môn học</button>
                     </a>
-                    <a data-bs-toggle="modal" data-bs-target="#request-filter">
-                        <button class="btn btn-outline-primary me-3 filter-content">Hoạt động</button>
-                    </a>
                     <a href="{% url 'connect-create' %}">
                         <button class="btn btn-outline-primary filter-content">Tạo yêu cầu</button>
                     </a>
@@ -34,26 +31,9 @@
                 </div>
                 <div class="modal-body modal-content-text">
                     {% for subject in subjects %}
+                    <a href="?subject={{subject.pk}}">
                     <button class="mt-2 btn px-2 py-1 text-white {% if subject.selected %}selected-filter-items{% endif %}" style="{% if not subject.selected %}background-color: #777da7;{% endif %}">{{ subject.name }}</button>
-                    {% endfor %}
-                </div>
-                <div class="modal-footer modal-content-text d-flex justify-content-end">
-                    <button class="btn btn-outline-primary me-3"><strong>Lưu</strong></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal modal-fluid modal-vertical fade" id="request-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h3 class="modal-header-text text-white mt-2">Hoạt động</h3>
-                    <button type="button" class="btn-close btn-close-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body modal-content-text">
-                    {% for activity in extracurricularActivities %}
-                    <button class="mt-2 btn px-2 py-1 text-white {% if activity.selected %}selected-filter-items{% endif %}" style="{% if not activity.selected %}background-color: #777da7;{% endif %}">{{ activity.name }}</button>
+                    </a>
                     {% endfor %}
                 </div>
                 <div class="modal-footer modal-content-text d-flex justify-content-end">
@@ -140,7 +120,7 @@
                                 </div>
                                 <div class="mt-2 col-12 d-flex align-items-center">
                                     <img src="{% static 'icons/membersIcon.svg' %}" class="me-2" alt="members-icon">
-                                    Số người đang tham gia: {{ connect.count_connect }}
+                                    Số người đang gửi yêu cầu: {{ connect.count_connect }}
                                 </div>
                             </div>
                         </div>
